@@ -8,8 +8,14 @@ public class GameManager : Singleton<GameManager>
 
     public void ContainmentWallBroken()
     {
-        gameState = GameState.BrokeContainmentWalls;
+        ChangeState(GameState.BrokeContainmentWalls);
         onContainmentWallBroken?.Invoke();
+    }
+
+    private void ChangeState(GameState state)
+    {
+        Logger.Log($"Game state: <color=white>{gameState} -> {state}.", Logger.DomainType.System);
+        gameState = state;
     }
 }
 

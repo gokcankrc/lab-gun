@@ -1,17 +1,18 @@
-using System;
 using UnityEngine;
 
-public abstract class ContainmentWall : Breakable
+public class ContainmentWall : Breakable
 {
+    [SerializeField] private GameObject destroyedDecalPrefab;
+
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log($"collision entered to containment wall");
         GameManager.I.ContainmentWallBroken();
+        Break();
     }
 
-    private void OnTriggerEnter2D(Collider other)
+    private void Break()
     {
-        Debug.Log($"trigger entered to containment wall");
-        GameManager.I.ContainmentWallBroken();
+        Instantiate(destroyedDecalPrefab, transform.position, Quaternion.identity, DecalParent.I);
+        Destroy(gameObject);
     }
 }

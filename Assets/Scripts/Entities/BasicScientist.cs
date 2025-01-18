@@ -8,6 +8,7 @@ public class BasicScientist : Enemy
     private StateMachine<EnemyState> fsm;
     public bool canAttackTester;
     public BasicProjectile basicProjectilePrefab;
+    [SerializeField] private float attackDistance = 5f;
 
     [ShowInInspector] private EnemyState State => fsm?.State ?? EnemyState.Idle;
 
@@ -30,7 +31,8 @@ public class BasicScientist : Enemy
             return true;
         }
 
-        return false;
+        var distanceToPlayer = Vector3.Distance(transform.position, Player.I.transform.position);
+        return distanceToPlayer < attackDistance;
     }
 
     #region Finite State Machine
@@ -53,7 +55,7 @@ public class BasicScientist : Enemy
     private IEnumerator Attacking_Enter()
     {
         yield return new WaitForSeconds(2f);
-        var projectile = Instantiate(basicProjectilePrefab, transform.position, Quaternion.identity, ProjectileParent.I.transform);
+        var projectile = Instantiate(basicProjectilePrefab, transform.position, Quaternion.identity, ProjectileParent.I);
         projectile.Init(Player.I.Pos - transform.position);
         fsm.ChangeState(EnemyState.Following);
     }

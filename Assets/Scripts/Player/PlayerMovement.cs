@@ -51,9 +51,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Move(Vector2 vector){
         Vector2 moveVector = vector.normalized;
-		
         moveVector*= playerSpeed*Time.fixedDeltaTime;
-		print (moveVector);
 		body.AddForce(moveVector);
     }
 }

@@ -9,10 +9,8 @@ public class Player : Singleton<Player>
 
     private void Update()
     {
-        /*
         var x = Input.GetAxis("Horizontal");
         var y = Input.GetAxis("Vertical");
         transform.position += new Vector3(x, y, 0) * (Time.deltaTime * speed);
-        */
     }
 }
