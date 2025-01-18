@@ -1,9 +1,11 @@
+using Ky;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Singleton<Player>
 {
     [SerializeField] private float speed = 4f;
     [SerializeField] private Camera cam;
+    public Vector3 Pos => transform.position;
 
     private void Update()
     {

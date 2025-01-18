@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DebugManager : Singleton<DebugManager>
 {
-    [SerializeField] private KeyCode refreshKey;
+    [SerializeField] private KeyCode refreshKey = KeyCode.F5;
 
     private void Update()
     {
