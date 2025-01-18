@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField]Controls inputScheme;
     [SerializeField]float playerSpeed;
     Rigidbody2D body;
+    bool movingWithMouse;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,25 +17,43 @@ public class PlayerMovement : MonoBehaviour
         }
         inputScheme = new Controls();
         inputScheme.Movement.Enable();
-        inputScheme.Movement.MouseClick.performed += PushToMouse;
+        inputScheme.Movement.MouseClick.started += StartMovement;
+        //inputScheme.Movement.MouseClick.performed += StopMovement;
+        inputScheme.Movement.MouseClick.canceled += StopMovement;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (movingWithMouse){
+            MoveToMouse();
+        }
+        else {
+            MoveThroughKeyboard();
+        }
+    }
+    void MoveThroughKeyboard(){
+        Vector2 moveVector = inputScheme.Movement.Directions.ReadValue<Vector2>();
+        Move(moveVector);
+    }
+    void StartMovement (UnityEngine.InputSystem.InputAction.CallbackContext input){
+        
+        movingWithMouse = true;
+    }
+    void StopMovement (UnityEngine.InputSystem.InputAction.CallbackContext input){
+        movingWithMouse = false;
         
     }
-    void PushToMouse(UnityEngine.InputSystem.InputAction.CallbackContext input){
-        Vector2 mousePos = inputScheme.Movement.MousePosition.ReadValue<Vector2>();
-        if (mousePos.x > mousePos.y){
-            mousePos /= mousePos.x;
-        }
-        else{
-            mousePos /= mousePos.y;
-        }
-        
-        mousePos-= new Vector2(0.5f,0.5f);
-        mousePos*= playerSpeed;
-        body.AddForce(mousePos);
+    void MoveToMouse(){
+        Vector2 moveVector = (Vector2)Camera.main.ScreenToWorldPoint(inputScheme.Movement.MousePosition.ReadValue<Vector2>());
+        moveVector -= (Vector2)transform.position;
+		Move(moveVector);
+    }
+    void Move(Vector2 vector){
+        Vector2 moveVector = vector.normalized;
+		
+        moveVector*= playerSpeed*Time.fixedDeltaTime;
+		print (moveVector);
+		body.AddForce(moveVector);
     }
 }

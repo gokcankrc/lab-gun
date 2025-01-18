@@ -44,6 +44,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Directions"",
+                    ""type"": ""Value"",
+                    ""id"": ""d9559c1d-e6b8-47ea-a472-8de08ee657d0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -68,6 +77,61 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""cc0f4dd4-ec1b-48d3-85c3-5777f11b00a9"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directions"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""6d519116-e31e-450e-92b7-7095de72a805"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directions"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""be1bca1b-e7c9-476b-9b02-2ee6a8a07c09"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directions"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""a31aac0f-c98f-4cbf-8b8a-e4dffa652e8c"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directions"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""cbcea54b-9a37-41e6-846a-6bef940c2063"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directions"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -78,6 +142,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_MouseClick = m_Movement.FindAction("MouseClick", throwIfNotFound: true);
         m_Movement_MousePosition = m_Movement.FindAction("MousePosition", throwIfNotFound: true);
+        m_Movement_Directions = m_Movement.FindAction("Directions", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -146,12 +211,14 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
     private readonly InputAction m_Movement_MouseClick;
     private readonly InputAction m_Movement_MousePosition;
+    private readonly InputAction m_Movement_Directions;
     public struct MovementActions
     {
         private @Controls m_Wrapper;
         public MovementActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @MouseClick => m_Wrapper.m_Movement_MouseClick;
         public InputAction @MousePosition => m_Wrapper.m_Movement_MousePosition;
+        public InputAction @Directions => m_Wrapper.m_Movement_Directions;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -167,6 +234,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MousePosition.started += instance.OnMousePosition;
             @MousePosition.performed += instance.OnMousePosition;
             @MousePosition.canceled += instance.OnMousePosition;
+            @Directions.started += instance.OnDirections;
+            @Directions.performed += instance.OnDirections;
+            @Directions.canceled += instance.OnDirections;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -177,6 +247,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MousePosition.started -= instance.OnMousePosition;
             @MousePosition.performed -= instance.OnMousePosition;
             @MousePosition.canceled -= instance.OnMousePosition;
+            @Directions.started -= instance.OnDirections;
+            @Directions.performed -= instance.OnDirections;
+            @Directions.canceled -= instance.OnDirections;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -198,5 +271,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     {
         void OnMouseClick(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
+        void OnDirections(InputAction.CallbackContext context);
     }
 }
