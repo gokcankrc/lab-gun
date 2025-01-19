@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]float playerSpeed;
     Rigidbody2D body;
     bool movingWithMouse;
+
+    public float Speed => body.velocity.magnitude;
+
     // Start is called before the first frame update
     void Start()
     {

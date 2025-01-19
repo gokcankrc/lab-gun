@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Player : Singleton<Player>
 {
-    [SerializeField] private PlayerMovement playerMovement;
+    public PlayerMovement movement;
 
     public Vector3 Pos => transform.position;
 }
