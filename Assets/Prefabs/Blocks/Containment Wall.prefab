@@ -90,3 +90,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyedDecalPrefab: {fileID: 7493088988398801096, guid: 445764f5e6b693c438a08798a2c1596d, type: 3}
+  health: 5
+  hurtingSpeedThreshold: 7

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Logger = Ky.Logger;
 
 public class ContainmentWall : Breakable
 {
@@ -11,13 +12,16 @@ public class ContainmentWall : Breakable
         var player = other.transform.GetComponent<Player>();
         if (player != null)
         {
-            if (player.movement.Speed > hurtingSpeedThreshold)
+            var speed = other.relativeVelocity.magnitude;
+            if (speed > hurtingSpeedThreshold)
             {
+                Debug.Log($"<color=green>Passes, {speed}</color>");
                 // TODO: Sound
                 TakeDamage();
             }
             else
             {
+                Debug.Log($"<color=red>Doesn't pass, {speed}</color>");
                 // TODO: Sound
             }
         }
