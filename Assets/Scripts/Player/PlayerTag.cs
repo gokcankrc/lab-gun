@@ -160,3 +160,25 @@ public struct ResetCondition
 	public float value;
 	public Tag.ResetsOn condition;
 }
+[Serializable]
+public struct SpecialActions
+{
+	public AdditionalActions.Action action;
+	public AdditionalActions.Trigger trigger;
+	public float value;
+}
+namespace AdditionalActions
+{
+    public enum Action
+    {
+        None,
+		Heal,
+		Accellerate,
+		Damage
+    }
+    public enum Trigger
+    {
+        None,
+		PlayerEnters
+    }
+}
