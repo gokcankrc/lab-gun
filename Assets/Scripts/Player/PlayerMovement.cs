@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 	[SerializeField]Controls inputScheme;
     [SerializeField]float playerSpeed;
+    [SerializeField]float maxSpeed;
     Rigidbody2D body;
     bool movingWithMouse;
 
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         else {
             MoveThroughKeyboard();
         }
+        LimitSpeed();
     }
     void MoveThroughKeyboard(){
         Vector2 moveVector = inputScheme.Movement.Directions.ReadValue<Vector2>();
@@ -56,5 +58,13 @@ public class PlayerMovement : MonoBehaviour
         Vector2 moveVector = vector.normalized;
         moveVector*= playerSpeed*Time.fixedDeltaTime;
 		body.AddForce(moveVector);
+    }
+    void LimitSpeed()
+    {
+        Rigidbody2D rb = transform.GetComponent<Rigidbody2D>();
+        if (rb.velocity.magnitude>maxSpeed)
+        {
+            rb.velocity = rb.velocity.normalized*maxSpeed;
+        }
     }
 }
