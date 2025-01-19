@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TagHandler : MonoBehaviour, SpecialCollisionForTag
 {
-    [SerializeField]Tag.Trigger trigger;
-    [SerializeField]Tag.Action action;
-    [SerializeField]PlayerTag tagModified;
-    [SerializeField]bool ignoreCollisionForTagReset;
+    [SerializeField]protected Tag.Trigger trigger;
+    [SerializeField]private Tag.Action action;
+    [SerializeField]private PlayerTag tagModified;
+    [SerializeField]private bool ignoreCollisionForTagReset;
     private void OnCollisionEnter2D(Collision2D other)
     {
         switch ((int)trigger)
@@ -25,7 +25,24 @@ public class TagHandler : MonoBehaviour, SpecialCollisionForTag
         
             
     }
-    private void ProcessAction(List<PlayerTag> list)
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        switch ((int)trigger)
+        {
+            case (int)Tag.Trigger.OnPlayerCollide:
+            {
+                var player = other.transform.GetComponent<Player>();
+                if (player != null)
+                {
+                    ProcessAction(player.tagList);
+                }
+                break;
+            }
+        }
+        
+            
+    }
+    protected void ProcessAction(List<PlayerTag> list)
     {
         switch ((int)action)
         {
@@ -58,10 +75,13 @@ public class TagHandler : MonoBehaviour, SpecialCollisionForTag
     }
 
 }
+
+
 namespace Tag
 {
     public enum Action
     {
+        None,
         Add,
         Subtract,
         Reset,
@@ -69,12 +89,13 @@ namespace Tag
     }
     public enum Trigger
     {
+        None,
         OnPlayerCollide,
         OnProjectileCollide
     }
     public enum ResetsOn
     {
-        none,
+        None,
         OnPlayerCollide,
         OnTimePassed
     }
