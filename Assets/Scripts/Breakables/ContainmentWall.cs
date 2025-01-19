@@ -1,18 +1,8 @@
-using UnityEngine;
-
-public class ContainmentWall : Breakable
+public class ContainmentWall : SpeedBreakable
 {
-    [SerializeField] private GameObject destroyedDecalPrefab;
-
-    private void OnCollisionEnter2D(Collision2D other)
+    protected override void Break()
     {
         GameManager.I.ContainmentWallBroken();
-        Break();
-    }
-
-    private void Break()
-    {
-        Instantiate(destroyedDecalPrefab, transform.position, Quaternion.identity, DecalParent.I);
-        Destroy(gameObject);
+        base.Break();
     }
 }
