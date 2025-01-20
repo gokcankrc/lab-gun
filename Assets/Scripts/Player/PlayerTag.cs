@@ -142,7 +142,7 @@ public class PlayerTag
 	
 	public bool ProcessResetCondition(Tag.ResetsOn eventId, float value)
 	{
-		if (resetCondition.condition == eventId)
+		if ((resetCondition.condition & eventId) == Tag.ResetsOn.OnTimePassed)
 		{
 			resetCondition.value-=value;
 			if (resetCondition.value <= 0)
@@ -150,6 +150,26 @@ public class PlayerTag
 				return true;
 			}
 		}
+		else if((resetCondition.condition & eventId) == Tag.ResetsOn.OnPlayerCollide)
+		{
+			return true;
+		}
+		
+		if ((resetCondition.condition & eventId) == Tag.ResetsOn.OnSpeedReached)
+		{
+			if (resetCondition.value <= value)
+			{
+				return true;
+			}
+		}
+		if ((resetCondition.condition & eventId) == Tag.ResetsOn.OnSpeedNotReached)
+		{
+			if (resetCondition.value >= value)
+			{
+				return true;
+			}
+		}
+		
 		return false;
 	}
 	
