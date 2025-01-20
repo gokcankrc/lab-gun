@@ -5,7 +5,7 @@ public class Player : Singleton<Player>
 {
     public PlayerMovement movement;
     public List<PlayerTag> tagList = new List<PlayerTag>(); 
-    
+    public int health;
     public Vector3 Pos => transform.position;
 
     void Update()

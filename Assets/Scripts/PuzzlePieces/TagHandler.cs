@@ -97,7 +97,9 @@ namespace Tag
     {
         None,
         OnPlayerCollide,
-        OnTimePassed
+        OnTimePassed,
+        OnSpeedReached,
+        OnSpeedNotReached
     }
 }
 public interface SpecialCollisionForTag{
