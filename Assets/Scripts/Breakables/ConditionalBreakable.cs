@@ -8,6 +8,7 @@ public class ConditionalBreakable : MonoBehaviour
     [SerializeField] private int health = 1;
     [SerializeField] private float hurtingSpeedThreshold;
     [SerializeField] private PlayerTag [] conditionList;
+    [SerializeField] private bool needsAllConditions;
     [SerializeField] private bool isContainmentWall;
     [SerializeField] ConditionalBreakable [] linkedParts;
     private void OnCollisionEnter2D(Collision2D other)
@@ -19,19 +20,40 @@ public class ConditionalBreakable : MonoBehaviour
             {
                 bool validImpact = false;
 
-
+                
                 if (conditionList.Length>0)
                 {
-                    foreach (PlayerTag condition in conditionList)
+                    if (needsAllConditions)
                     {
-                        if (PlayerTag.HasTagValue(player.tagList,condition))
+                        bool hasAll = true;
+                        foreach (PlayerTag condition in conditionList)
                         {
-                            validImpact = true;
+                            if (!PlayerTag.HasTagValue(player.tagList,condition))
+                            {
+                                hasAll = false;
+                            }
+                        }
+                        if (hasAll)
+                        {
                             // TODO: Sound
                             TakeDamage();
-                            break;
+                            validImpact = true;
                         }
                     }
+                    else 
+                    {
+                        foreach (PlayerTag condition in conditionList)
+                        {
+                            if (PlayerTag.HasTagValue(player.tagList,condition))
+                            {
+                                validImpact = true;
+                                // TODO: Sound
+                                TakeDamage();
+                                break;
+                            }
+                        }
+                    }
+                    
                 }
                 //If it has no conditions, then it's just a wall that doesn't trigger scientists when broken
                 else 
