@@ -5,7 +5,7 @@ public class Player : Singleton<Player>
 {
     public PlayerMovement movement;
     public List<PlayerTag> tagList = new List<PlayerTag>(); 
-    
+    public int health;
     public Vector3 Pos => transform.position;
 
     void Update()
@@ -19,9 +19,16 @@ public class Player : Singleton<Player>
                 removeList.Add(pt.tagName);
             }
             
+            if (pt.ProcessResetCondition(Tag.ResetsOn.OnSpeedReached | Tag.ResetsOn.OnSpeedNotReached,transform.GetComponent<Rigidbody2D>().velocity.magnitude))
+            {
+                removeList.Add(pt.tagName);
+            }
+            
+            
         }
         foreach (string tagName in removeList)
         {
+            print ("Removed "+tagName);
             PlayerTag.ResetValue(tagList,tagName);
         }
         

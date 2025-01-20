@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class ConditionalBreakable : MonoBehaviour
 {
     [SerializeField] private GameObject destroyedDecalPrefab;
     [SerializeField] private int health = 1;
     [SerializeField] private float hurtingSpeedThreshold;
-    [SerializeField] private PlayerTag condition;
-    [SerializeField] private bool exactValueForCondition;
+    [SerializeField] private PlayerTag [] conditionList;
     [SerializeField] private bool isContainmentWall;
+    [SerializeField] ConditionalBreakable [] linkedParts;
     private void OnCollisionEnter2D(Collision2D other)
     {
         var player = other.transform.GetComponent<Player>();
@@ -17,13 +17,31 @@ public class ConditionalBreakable : MonoBehaviour
         {
             if (player.movement.Speed > hurtingSpeedThreshold)
             {
-                
-                if (PlayerTag.HasTagValue(player.tagList,condition,exactValueForCondition))
+                bool validImpact = false;
+
+
+                if (conditionList.Length>0)
                 {
+                    foreach (PlayerTag condition in conditionList)
+                    {
+                        if (PlayerTag.HasTagValue(player.tagList,condition))
+                        {
+                            validImpact = true;
+                            // TODO: Sound
+                            TakeDamage();
+                            break;
+                        }
+                    }
+                }
+                //If it has no conditions, then it's just a wall that doesn't trigger scientists when broken
+                else 
+                {
+                    validImpact = true;
                     // TODO: Sound
                     TakeDamage();
                 }
-                else
+                
+                if (!validImpact)
                 {
                     // TODO: Sound
                 }
@@ -45,8 +63,15 @@ public class ConditionalBreakable : MonoBehaviour
         }
     }
 
-    private void Break()
+    private void Break(bool chain = true)
     {
+        if (chain)
+        {
+            foreach (ConditionalBreakable linked in linkedParts)
+            {
+                linked.Break(false);
+            }
+        }
         if (isContainmentWall)
         {
             GameManager.I.ContainmentWallBroken();

@@ -95,9 +95,11 @@ namespace Tag
     }
     public enum ResetsOn
     {
-        None,
-        OnPlayerCollide,
-        OnTimePassed
+        None = 0b_0000_0000,
+        OnPlayerCollide = 0b_0000_0001,
+        OnTimePassed = 0b_0000_0010,
+        OnSpeedReached = 0b_0000_0100,
+        OnSpeedNotReached= 0b_0000_1000
     }
 }
 public interface SpecialCollisionForTag{
