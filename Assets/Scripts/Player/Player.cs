@@ -1,7 +1,7 @@
 using Ky;
 using UnityEngine;
 using System.Collections.Generic;
-public class Player : Singleton<Player>
+public class Player : Singleton<Player>,TaggedObject
 {
     public PlayerMovement movement;
     public List<PlayerTag> tagList = new List<PlayerTag>(); 
@@ -55,5 +55,10 @@ public class Player : Singleton<Player>
         {
             PlayerTag.ResetValue(tagList,tagName);
         }
+    }
+    public List<PlayerTag> GetTagList()
+    {
+
+        return tagList;
     }
 }

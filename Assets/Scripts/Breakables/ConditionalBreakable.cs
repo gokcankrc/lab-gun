@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class ConditionalBreakable : MonoBehaviour
+public class ConditionalBreakable : MonoBehaviour,SpecialCollisionForTag
 {
     [SerializeField] private GameObject destroyedDecalPrefab;
     [SerializeField] private int health = 1;
@@ -11,63 +11,63 @@ public class ConditionalBreakable : MonoBehaviour
     [SerializeField] private bool needsAllConditions;
     [SerializeField] private bool isContainmentWall;
     [SerializeField] ConditionalBreakable [] linkedParts;
+    [SerializeField]private bool ignoreCollisionForTagReset;
     private void OnCollisionEnter2D(Collision2D other)
     {
-        var player = other.transform.GetComponent<Player>();
-        if (player != null)
+        var tagObject = other.transform.GetComponent<TaggedObject>();
+        if (tagObject != null)
         {
-            if (player.movement.Speed > hurtingSpeedThreshold)
-            {
-                bool validImpact = false;
+            
+            bool validImpact = false;
 
                 
-                if (conditionList.Length>0)
+            if (conditionList.Length>0)
+            {
+                if (needsAllConditions)
                 {
-                    if (needsAllConditions)
+                    bool hasAll = true;
+                    foreach (PlayerTag condition in conditionList)
                     {
-                        bool hasAll = true;
-                        foreach (PlayerTag condition in conditionList)
+                        if (!PlayerTag.HasTagValue(tagObject.GetTagList(),condition))
                         {
-                            if (!PlayerTag.HasTagValue(player.tagList,condition))
-                            {
-                                hasAll = false;
-                            }
-                        }
-                        if (hasAll)
-                        {
-                            // TODO: Sound
-                            TakeDamage();
-                            validImpact = true;
+                            hasAll = false;
                         }
                     }
-                    else 
+                    if (hasAll)
                     {
-                        foreach (PlayerTag condition in conditionList)
-                        {
-                            if (PlayerTag.HasTagValue(player.tagList,condition))
-                            {
-                                validImpact = true;
-                                // TODO: Sound
-                                TakeDamage();
-                                break;
-                            }
-                        }
+                        // TODO: Sound
+                        TakeDamage();
+                        validImpact = true;
                     }
-                    
                 }
-                //If it has no conditions, then it's just a wall that doesn't trigger scientists when broken
                 else 
                 {
-                    validImpact = true;
-                    // TODO: Sound
-                    TakeDamage();
+                    foreach (PlayerTag condition in conditionList)
+                    {
+                        if (PlayerTag.HasTagValue(tagObject.GetTagList(),condition))
+                        {
+                            validImpact = true;
+                            // TODO: Sound
+                            TakeDamage();
+                            break;
+                        }
+                    }
                 }
-                
-                if (!validImpact)
-                {
-                    // TODO: Sound
-                }
+                    
             }
+            //If it has no conditions, then it's just a wall that doesn't trigger scientists when broken
+            else 
+            {
+                validImpact = true;
+                // TODO: Sound
+                TakeDamage();
+            }
+                
+            if (!validImpact)
+            {
+                // TODO: Sound
+            }
+            
             else
             {
                 // TODO: Sound
@@ -84,7 +84,10 @@ public class ConditionalBreakable : MonoBehaviour
             Break();
         }
     }
-
+    public bool IgnoreForCollision()
+    {
+        return ignoreCollisionForTagReset;
+    }
     private void Break(bool chain = true)
     {
         if (chain)

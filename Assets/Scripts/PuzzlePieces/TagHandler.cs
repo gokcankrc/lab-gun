@@ -108,3 +108,11 @@ public interface SpecialCollisionForTag{
         return true;
     }
 }
+public interface TaggedObject
+{
+    public List<PlayerTag> GetTagList()
+    {
+
+        return new List<PlayerTag>();
+    }
+}
