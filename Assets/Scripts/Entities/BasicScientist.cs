@@ -24,6 +24,7 @@ public class BasicScientist : Enemy, ILevelObject
         fsm.Driver.Update.Invoke();
     }
 
+    [Button]
     public void Alarm()
     {
         fsm.ChangeState(CanAttack() ? EnemyState.Attacking : EnemyState.Following);

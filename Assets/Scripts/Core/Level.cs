@@ -14,13 +14,13 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        ILevelObject[] levelObjects = GetComponentsInChildren<ILevelObject>();
-        foreach (ILevelObject levelIndexed in levelObjects)
+        ILevelObject[] foundObjects = GetComponentsInChildren<ILevelObject>();
+        foreach (ILevelObject levelIndexed in foundObjects)
         {
             levelIndexed.LevelIndex = index;
         }
 
-        levelObjects.AddRange(levelObjects);
+        levelObjects.AddRange(foundObjects);
     }
 
     private void OnDisable()
@@ -28,10 +28,10 @@ public class Level : MonoBehaviour
         GameManager.I.RemoveLevel(index);
     }
 
-    public void TriggerAlarm(int index)
+    public void TriggerAlarm(int triggeredLevelIndex)
     {
         // don't alarm if this is a later level than the alarmed level.
-        if (this.index > index) return;
+        if (this.index > triggeredLevelIndex) return;
         foreach (var levelObject in levelObjects)
         {
             levelObject.Alarm();
