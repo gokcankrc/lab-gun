@@ -296,6 +296,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1860604943957547698, guid: 0d3b893c050afaa4dace52218221da67, type: 3}
+      propertyPath: action
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860604943957547698, guid: 0d3b893c050afaa4dace52218221da67, type: 3}
+      propertyPath: trigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4986286062293457200, guid: 0d3b893c050afaa4dace52218221da67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

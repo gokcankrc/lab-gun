@@ -3,7 +3,7 @@ using MonsterLove.StateMachine;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class BasicScientist : Enemy
+public class BasicScientist : Enemy, ILevelObject
 {
     private StateMachine<EnemyState> fsm;
     public bool canAttackTester;
@@ -11,6 +11,7 @@ public class BasicScientist : Enemy
     [SerializeField] private float attackDistance = 5f;
 
     [ShowInInspector] private EnemyState State => fsm?.State ?? EnemyState.Idle;
+    [ShowInInspector, ReadOnly] public int LevelIndex { get; set; }
 
     private void Awake()
     {
@@ -21,6 +22,12 @@ public class BasicScientist : Enemy
     private void Update()
     {
         fsm.Driver.Update.Invoke();
+    }
+
+    [Button]
+    public void Alarm()
+    {
+        fsm.ChangeState(CanAttack() ? EnemyState.Attacking : EnemyState.Following);
     }
 
     private bool CanAttack()
@@ -36,14 +43,6 @@ public class BasicScientist : Enemy
     }
 
     #region Finite State Machine
-    private void Idle_Update()
-    {
-        if (GameManager.I.gameState == GameState.InBreakout)
-        {
-            fsm.ChangeState(CanAttack() ? EnemyState.Attacking : EnemyState.Following);
-        }
-    }
-
     private void Following_Update()
     {
         if (CanAttack())
@@ -57,6 +56,7 @@ public class BasicScientist : Enemy
         yield return new WaitForSeconds(2f);
         var projectile = Instantiate(basicProjectilePrefab, transform.position, Quaternion.identity, ProjectileParent.I);
         projectile.Init(Player.I.Pos - transform.position);
+        projectile.transform.position += Vector3.back;
         fsm.ChangeState(EnemyState.Following);
     }
     #endregion

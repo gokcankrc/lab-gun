@@ -53,6 +53,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""974cd163-787f-43e7-ada9-6f4a5b17ff5f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Directions"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95fa5e7a-f0bf-4b21-9d58-5a1c89c6d1e1"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Movement_MouseClick = m_Movement.FindAction("MouseClick", throwIfNotFound: true);
         m_Movement_MousePosition = m_Movement.FindAction("MousePosition", throwIfNotFound: true);
         m_Movement_Directions = m_Movement.FindAction("Directions", throwIfNotFound: true);
+        m_Movement_Reset = m_Movement.FindAction("Reset", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -212,6 +233,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_MouseClick;
     private readonly InputAction m_Movement_MousePosition;
     private readonly InputAction m_Movement_Directions;
+    private readonly InputAction m_Movement_Reset;
     public struct MovementActions
     {
         private @Controls m_Wrapper;
@@ -219,6 +241,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @MouseClick => m_Wrapper.m_Movement_MouseClick;
         public InputAction @MousePosition => m_Wrapper.m_Movement_MousePosition;
         public InputAction @Directions => m_Wrapper.m_Movement_Directions;
+        public InputAction @Reset => m_Wrapper.m_Movement_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -237,6 +260,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Directions.started += instance.OnDirections;
             @Directions.performed += instance.OnDirections;
             @Directions.canceled += instance.OnDirections;
+            @Reset.started += instance.OnReset;
+            @Reset.performed += instance.OnReset;
+            @Reset.canceled += instance.OnReset;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -250,6 +276,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Directions.started -= instance.OnDirections;
             @Directions.performed -= instance.OnDirections;
             @Directions.canceled -= instance.OnDirections;
+            @Reset.started -= instance.OnReset;
+            @Reset.performed -= instance.OnReset;
+            @Reset.canceled -= instance.OnReset;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -272,5 +301,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMouseClick(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
         void OnDirections(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Ky;
 using UnityEngine;
 using Logger = Ky.Logger;
@@ -6,13 +7,14 @@ using Logger = Ky.Logger;
 public class GameManager : Singleton<GameManager>
 {
     public GameState gameState;
-    public Action onContainmentWallBroken;
+    public Action<int> onContainmentWallBroken;
+    public Dictionary<int, Level> levels = new();
 
-    public void ContainmentWallBroken()
+    public void ContainmentWallBroken(int levelIndex)
     {
-        // ChangeState(GameState.BrokeContainmentWalls);
+        if (gameState != GameState.InPuzzle) return;
         ChangeState(GameState.InBreakout);
-        onContainmentWallBroken?.Invoke();
+        onContainmentWallBroken?.Invoke(levelIndex);
     }
 
     private void ChangeState(GameState state)
@@ -21,6 +23,17 @@ public class GameManager : Singleton<GameManager>
                    $"{Color.white.EncapsulateString(gameState.ToString())} -> " +
                    $"{Color.white.EncapsulateString(state.ToString())}.", Logger.DomainType.System);
         gameState = state;
+    }
+
+    public void AddLevel(int index, Level level)
+    {
+        levels.TryAdd(index, level);
+        onContainmentWallBroken += level.TriggerAlarm;
+    }
+
+    public void RemoveLevel(int index)
+    {
+        levels.Remove(index);
     }
 }
 
