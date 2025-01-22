@@ -1,6 +1,9 @@
+using System;
 using Ky;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
+
 public class Player : Singleton<Player>,TaggedObject
 {
     public PlayerMovement movement;
@@ -56,6 +59,31 @@ public class Player : Singleton<Player>,TaggedObject
             PlayerTag.ResetValue(tagList,tagName);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Projectile"))
+        {
+            Debug.Log($"Took damage, other: {other.name} health: {health - 1}");
+            TakeDamage();
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void TakeDamage()
+    {
+        health -= 1;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        movement.StartReset(new InputAction.CallbackContext());
+    }
+
     public List<PlayerTag> GetTagList()
     {
 
