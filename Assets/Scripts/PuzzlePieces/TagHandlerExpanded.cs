@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//mostly for triggers and effect indipendent from tags (such as healing or speedups)
 public class TagHandlerExpanded : TagHandler
 {
     [SerializeField]List<SpecialActions> special;

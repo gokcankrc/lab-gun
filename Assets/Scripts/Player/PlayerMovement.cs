@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
 	[SerializeField]Controls inputScheme;
     [SerializeField]float playerSpeed;
-    [SerializeField]float maxSpeed;
+    [SerializeField]float maxSpeed, resetTime;
     Rigidbody2D body;
     bool movingWithMouse;
+    bool resetting;
+    float resetTimeRemaining;
 
     public float Speed => body.velocity.magnitude;
 
@@ -24,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
         inputScheme.Movement.MouseClick.started += StartMovement;
         //inputScheme.Movement.MouseClick.performed += StopMovement;
         inputScheme.Movement.MouseClick.canceled += StopMovement;
+        inputScheme.Movement.Reset.started += StartReset;
+        inputScheme.Movement.Reset.canceled += StopReset;
+        
     }
 
     // Update is called once per frame
@@ -36,6 +41,22 @@ public class PlayerMovement : MonoBehaviour
             MoveThroughKeyboard();
         }
         LimitSpeed();
+        CheckResetTimer();
+    }
+    void CheckResetTimer()
+    {
+        if (resetting)
+        {
+            resetTimeRemaining -= Time.fixedDeltaTime;
+            if (resetTimeRemaining<=0f)
+            {
+                ResetStage();
+            }
+        }
+    }
+    public static void ResetStage ()
+    {
+        SceneManager.LoadScene("Main Scene");
     }
     void MoveThroughKeyboard(){
         Vector2 moveVector = inputScheme.Movement.Directions.ReadValue<Vector2>();
@@ -48,6 +69,15 @@ public class PlayerMovement : MonoBehaviour
     void StopMovement (UnityEngine.InputSystem.InputAction.CallbackContext input){
         movingWithMouse = false;
         
+    }
+    void StartReset (UnityEngine.InputSystem.InputAction.CallbackContext input)
+    {
+        resetTimeRemaining = resetTime;
+        resetting = true;
+    }
+    void StopReset (UnityEngine.InputSystem.InputAction.CallbackContext input)
+    {
+        resetting = false;
     }
     void MoveToMouse(){
         Vector2 moveVector = (Vector2)Camera.main.ScreenToWorldPoint(inputScheme.Movement.MousePosition.ReadValue<Vector2>());

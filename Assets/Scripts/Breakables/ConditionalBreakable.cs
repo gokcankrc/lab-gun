@@ -101,8 +101,11 @@ public class ConditionalBreakable : MonoBehaviour,SpecialCollisionForTag
         {
             GameManager.I.ContainmentWallBroken();
         }
+        if (destroyedDecalPrefab != null)
+        {
+            Instantiate(destroyedDecalPrefab, transform.position, Quaternion.identity, DecalParent.I);
+        }
         
-        Instantiate(destroyedDecalPrefab, transform.position, Quaternion.identity, DecalParent.I);
         Destroy(gameObject);
     }
 }

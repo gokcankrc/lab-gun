@@ -14,10 +14,10 @@ public class TagHandler : MonoBehaviour, SpecialCollisionForTag
         {
             case (int)Tag.Trigger.OnPlayerCollide:
             {
-                var player = other.transform.GetComponent<Player>();
-                if (player != null)
+                var target = other.transform.GetComponent<TaggedObject>();
+                if (target != null)
                 {
-                    ProcessAction(player.tagList);
+                    ProcessAction(target.GetTagList());
                 }
                 break;
             }
@@ -31,10 +31,10 @@ public class TagHandler : MonoBehaviour, SpecialCollisionForTag
         {
             case (int)Tag.Trigger.OnPlayerCollide:
             {
-                var player = other.transform.GetComponent<Player>();
-                if (player != null)
+                var target = other.transform.GetComponent<TaggedObject>();
+                if (target != null)
                 {
-                    ProcessAction(player.tagList);
+                    ProcessAction(target.GetTagList());
                 }
                 break;
             }
