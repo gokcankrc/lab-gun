@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7924528, g: 0.57938766, b: 0.5858447, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -135,3 +135,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canAttackTester: 0
   basicProjectilePrefab: {fileID: 3594240224001032850, guid: 902251cfa0df68147a3e73ef22eb6fe8, type: 3}
+  attackDistance: 5

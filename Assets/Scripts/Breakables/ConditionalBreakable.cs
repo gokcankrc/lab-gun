@@ -9,7 +9,6 @@ public class ConditionalBreakable : MonoBehaviour,SpecialCollisionForTag
     [SerializeField] private float hurtingSpeedThreshold;
     [SerializeField] private PlayerTag [] conditionList;
     [SerializeField] private bool needsAllConditions;
-    [SerializeField] private bool isContainmentWall;
     [SerializeField] ConditionalBreakable [] linkedParts;
     [SerializeField]private bool ignoreCollisionForTagReset;
     private void OnCollisionEnter2D(Collision2D other)
@@ -96,10 +95,6 @@ public class ConditionalBreakable : MonoBehaviour,SpecialCollisionForTag
             {
                 linked.Break(false);
             }
-        }
-        if (isContainmentWall)
-        {
-            GameManager.I.ContainmentWallBroken();
         }
         if (destroyedDecalPrefab != null)
         {
