@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         movingWithMouse = false;
         
     }
-    void StartReset (UnityEngine.InputSystem.InputAction.CallbackContext input)
+    public void StartReset (UnityEngine.InputSystem.InputAction.CallbackContext input)
     {
         resetTimeRemaining = resetTime;
         resetting = true;

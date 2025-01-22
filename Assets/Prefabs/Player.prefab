@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 5617335860509260270}
   tagList: []
-  health: 0
+  health: 3
 --- !u!114 &5617335860509260270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,3 +179,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 600
   maxSpeed: 200
+  resetTime: 0

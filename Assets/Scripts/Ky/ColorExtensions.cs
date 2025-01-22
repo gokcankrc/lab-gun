@@ -6,7 +6,7 @@ namespace Ky
     {
         public static string EncapsulateString(this Color color, string text)
         {
-            return $"<#{color.ToHex()}>{text}</color>";
+            return $"<color=#{color.ToHex()}>{text}</color>";
         }
 
         public static string ToHex(this Color color)

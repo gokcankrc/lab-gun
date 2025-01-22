@@ -59,7 +59,6 @@ namespace Ky
         {
             StartCoroutine(Delayed());
 
-
             IEnumerator Delayed()
             {
                 yield return new WaitForSeconds(delay);
@@ -93,7 +92,6 @@ namespace Ky
         public void SetCurve(AnimationCurve shakeCurve, float duration, float delay = 0)
         {
             StartCoroutine(CurveShake());
-
 
             IEnumerator CurveShake()
             {
