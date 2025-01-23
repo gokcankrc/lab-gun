@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refreshKey: 286
+  stopTimeKey: 112
 --- !u!1 &6825872523407989854
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +91,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 0
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &8638531214691942155
 GameObject:
   m_ObjectHideFlags: 0

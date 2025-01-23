@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8792772109445279356}
   - component: {fileID: 2454602950988392183}
   - component: {fileID: 3826222949597392913}
-  m_Layer: 0
+  - component: {fileID: 8968822150589112502}
+  m_Layer: 9
   m_Name: Scientist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +96,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 197310644224125483}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 63c101d33d340e749935fac4165ba8ba, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -115,7 +116,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -136,3 +137,31 @@ MonoBehaviour:
   canAttackTester: 0
   basicProjectilePrefab: {fileID: 3594240224001032850, guid: 902251cfa0df68147a3e73ef22eb6fe8, type: 3}
   attackDistance: 5
+  moveSpeed: 5
+--- !u!50 &8968822150589112502
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197310644224125483}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

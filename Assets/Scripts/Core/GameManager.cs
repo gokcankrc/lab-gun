@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
 {
     public GameState gameState;
     public Action<int> onContainmentWallBroken;
+    public LayerMask obstacleMask;
     public Dictionary<int, Level> levels = new();
 
     public void ContainmentWallBroken(int levelIndex)
