@@ -9,16 +9,17 @@ public class SpeedBreakable : Breakable
         var player = other.transform.GetComponent<Player>();
         if (player != null)
         {
-            var speed = other.relativeVelocity.magnitude;
-            if (speed > hurtingSpeedThreshold)
+            Vector2 collisionNormal = other.contacts[0].normal;
+            var impactSpeed = Vector2.Dot(other.relativeVelocity, collisionNormal);
+            if (impactSpeed > hurtingSpeedThreshold)
             {
-                Debug.Log($"<color=green>Passes, {speed}</color>");
+                Debug.Log($"<color=green>Passes, {impactSpeed}</color>");
                 // TODO: Sound
                 TakeDamage();
             }
             else
             {
-                Debug.Log($"<color=red>Doesn't pass, {speed}</color>");
+                Debug.Log($"<color=red>Doesn't pass, {impactSpeed}</color>");
                 // TODO: Sound
             }
         }

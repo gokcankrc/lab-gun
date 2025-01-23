@@ -67,7 +67,7 @@ public class TaggedProjectile : MonoBehaviour,TaggedObject,SpecialCollisionForTa
                 return;
             }
             var special = other.transform.GetComponent<SpecialCollisionForTag>();
-            if (special != null && special.IgnoreForCollision())
+            if (special == null || !special.IgnoreForCollision())
             {
                 Destroy(gameObject);
                 return;
