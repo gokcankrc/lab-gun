@@ -20,6 +20,7 @@ MonoBehaviour:
     rightHighlighted: 0
     backgroundFadeIn: 1
     backgroundFadeOut: 1
+    textShowing: 0
     title: testity
     text: very long text to test text partial displaying and completion and you know,
       like, time to display something stupidly long, how it fits into the screen,
@@ -32,6 +33,29 @@ MonoBehaviour:
     rightHighlighted: 0
     backgroundFadeIn: 0
     backgroundFadeOut: 0
+    textShowing: 1
     title: mo
     text: helloooooooooo
+    fadeTime: 1
+  - leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    background: {fileID: 0}
+    leftHighlighted: 0
+    rightHighlighted: 0
+    backgroundFadeIn: 1
+    backgroundFadeOut: 0
+    textShowing: 0
+    title: 
+    text: 
+    fadeTime: 1
+  - leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    background: {fileID: 0}
+    leftHighlighted: 0
+    rightHighlighted: 0
+    backgroundFadeIn: 0
+    backgroundFadeOut: 1
+    textShowing: 0
+    title: 
+    text: 
     fadeTime: 1
