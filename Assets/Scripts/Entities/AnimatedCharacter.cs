@@ -40,7 +40,18 @@ public class AnimatedCharacter : MonoBehaviour
 	}
 	public void Turn(Animation.Direction newDir)
 	{
-
+		//print ("turning "+newDir);
+		if (newDir == Animation.Direction.none)
+		{
+			return;
+		}
+		current = GetAnimationFor(currentId).ReturnSet(currentDirection);
+		if (currentStep >=current.Count())
+		{
+			currentStep = 0;
+		}
+		//GetNextStep();
+		//print ("I did not explode");
 	}
 	Animation.AnimationSet GetAnimationFor(Animation.AnimationId id)
 	{
@@ -113,9 +124,40 @@ public class AnimatedCharacter : MonoBehaviour
 			timeToNextStep = timePerStep;	
 		}
 	}
+	public static Animation.Direction VectorToDirection(Vector2 vector)
+	{
+		if (vector.magnitude == 0)
+		{
+			return Animation.Direction.none;
+		}
+		if (Math.Abs(vector.x)>Math.Abs(vector.y))
+		{
+			if (vector.x>0)
+			{
+				return Animation.Direction.right;
+			}
+			else
+			{
+				return Animation.Direction.left;
+			}
+		}
+		else 
+		{
+			if (vector.y>0)
+			{
+				return Animation.Direction.up;
+			}
+			else
+			{
+				return Animation.Direction.down;
+			}
+		}
+		
+	}
 }
 namespace Animation
 {
+	
 	public enum AnimationId
 	{
 		idle,
