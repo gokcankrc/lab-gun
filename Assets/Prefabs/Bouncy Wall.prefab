@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5985371872773480605}
   - component: {fileID: 1008303085217481764}
   - component: {fileID: 364869596920929536}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bouncy Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,6 +106,7 @@ MonoBehaviour:
     resetCondition:
       value: 1
       condition: 1
+    exactValueForCondition: 0
   ignoreCollisionForTagReset: 1
 --- !u!61 &364869596920929536
 BoxCollider2D:
