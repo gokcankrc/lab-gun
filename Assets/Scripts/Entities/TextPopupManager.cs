@@ -8,7 +8,7 @@ public class TextPopupManager : Singleton<TextPopupManager>
     public void SetUp(TextPopup dep)
     {
         var prf = dep.prefab == null ? prefab : dep.prefab;
-        var newPopup = Instantiate(prf, dep.transform.position, Quaternion.identity, dep.transform);
+        var newPopup = Instantiate(prf, dep.transform.position + Vector3.back, Quaternion.identity, dep.transform);
         newPopup.Init(dep);
     }
 }

@@ -4239,6 +4239,7 @@ GameObject:
   - component: {fileID: 679956781510976491}
   - component: {fileID: 8624866940344403866}
   - component: {fileID: 5156024383266393048}
+  - component: {fileID: 8439635711808174733}
   m_Layer: 0
   m_Name: test
   m_TagString: Untagged
@@ -4370,6 +4371,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2667077fc08a49de9cdafa5ae88a35ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8439635711808174733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752127394211265000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7b18cb6c8d438b9ccdc115db596b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texts:
+  - text: 'Hello I am a trashcan and this is my clue:'
+    duration: 3
+  - text: first puzzle isn't even done yet!
+    duration: 3
+  prefab: {fileID: 0}
+  mode: 0
+  condition: 1
 --- !u!1 &7268221514690356047
 GameObject:
   m_ObjectHideFlags: 0
@@ -6817,8 +6838,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 935320874326225701, guid: 0d139864479a80b4eb38b387e37b973b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9044451582091993757}
   m_SourcePrefab: {fileID: 100100000, guid: 0d139864479a80b4eb38b387e37b973b, type: 3}
+--- !u!1 &4008758161515447481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 935320874326225701, guid: 0d139864479a80b4eb38b387e37b973b, type: 3}
+  m_PrefabInstance: {fileID: 4277035566193407900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9044451582091993757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4008758161515447481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7b18cb6c8d438b9ccdc115db596b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texts:
+  - text: Hello. I am a red box. I am bouncy.
+    duration: 3
+  prefab: {fileID: 0}
+  mode: 0
+  condition: 0
 --- !u!4 &5067031550327079442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9010193733997180302, guid: 0d139864479a80b4eb38b387e37b973b, type: 3}
