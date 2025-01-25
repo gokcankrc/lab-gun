@@ -1,0 +1,89 @@
+using System.Collections;
+using MonsterLove.StateMachine;
+using Sirenix.OdinInspector;
+using UnityEngine;
+
+public class BasicScientist : Enemy, ILevelObject
+{
+    private StateMachine<EnemyState> fsm;
+    public bool canAttackTester;
+    public BasicProjectile basicProjectilePrefab;
+    [SerializeField] private float attackDistance = 5f;
+    [SerializeField] private float moveSpeed = 5f;
+    private float engagedTimer;
+
+    [ShowInInspector] private EnemyState State => fsm?.State ?? EnemyState.Idle;
+    [ShowInInspector, ReadOnly] public int LevelIndex { get; set; }
+
+    private void Awake()
+    {
+        fsm = new StateMachine<EnemyState>(this);
+        fsm.ChangeState(EnemyState.Idle);
+    }
+
+    private void Update()
+    {
+        fsm.Driver.Update.Invoke();
+    }
+
+    [Button]
+    public void Alarm()
+    {
+        fsm.ChangeState(CanAttack() ? EnemyState.Attacking : EnemyState.Following);
+    }
+
+    private bool CanAttack()
+    {
+        if (canAttackTester)
+        {
+            canAttackTester = false;
+            return true;
+        }
+
+        if (!HasLineOfSight()) return false;
+        var distanceToPlayer = Vector3.Distance(transform.position, Player.I.transform.position);
+        return distanceToPlayer < attackDistance;
+    }
+
+    private bool HasLineOfSight()
+    {
+        var obstacleMask = GameManager.I.obstacleMask;
+        var playerTr = Player.I.transform;
+        Vector2 directionToPlayer = (playerTr.position - transform.position).normalized;
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTr.position);
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, distanceToPlayer, obstacleMask);
+
+        return hit.collider == null;
+    }
+
+    #region Finite State Machine
+    private void Following_Update()
+    {
+        if (HasLineOfSight())
+        {
+            engagedTimer = 1f;
+        }
+
+        engagedTimer -= Time.deltaTime;
+        if (engagedTimer > 0)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, Player.I.transform.position, moveSpeed * Time.deltaTime);
+        }
+
+        if (CanAttack())
+        {
+            fsm.ChangeState(EnemyState.Attacking);
+        }
+    }
+
+    private IEnumerator Attacking_Enter()
+    {
+        yield return new WaitForSeconds(2f);
+        var projectile = Instantiate(basicProjectilePrefab, transform.position, Quaternion.identity, ProjectileParent.I);
+        projectile.Init(Player.I.Pos - transform.position);
+        projectile.transform.position += Vector3.back;
+        fsm.ChangeState(EnemyState.Following);
+    }
+    #endregion
+}
