@@ -72,6 +72,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4871198832679119641}
   m_SourcePrefab: {fileID: 100100000, guid: 4f48c670be2122f4ca312cedfa13cc03, type: 3}
+--- !u!212 &674926163609747864 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7470284540901292185, guid: 4f48c670be2122f4ca312cedfa13cc03, type: 3}
+  m_PrefabInstance: {fileID: 7995606711187601665}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4951180612541717245 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3044496536286880764, guid: 4f48c670be2122f4ca312cedfa13cc03, type: 3}
@@ -91,4 +96,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyedDecalPrefab: {fileID: 7493088988398801096, guid: 445764f5e6b693c438a08798a2c1596d, type: 3}
   health: 2
+  healthSprites:
+  - {fileID: 21300000, guid: ad700d2bac1c11a4eb14ea90a77180ef, type: 3}
+  - {fileID: 21300000, guid: 797ecf7c4f0ab3c459d2db78970577b9, type: 3}
+  - {fileID: 21300000, guid: 9dd941dd4c4558a4fa4bf8f48ea0cf4f, type: 3}
+  sprRenderer: {fileID: 674926163609747864}
   hurtingSpeedThreshold: 3

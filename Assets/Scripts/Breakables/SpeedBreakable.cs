@@ -24,20 +24,4 @@ public class SpeedBreakable : Breakable
             }
         }
     }
-
-    private void TakeDamage()
-    {
-        // TODO: Show cracks
-        health -= 1;
-        if (health <= 0)
-        {
-            Break();
-        }
-    }
-
-    protected virtual void Break()
-    {
-        Instantiate(destroyedDecalPrefab, transform.position, Quaternion.identity, DecalParent.I);
-        Destroy(gameObject);
-    }
 }
