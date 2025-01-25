@@ -9,6 +9,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]BlackOverlay fadeToBlack;
     [SerializeField]Image background, leftCharacter, rightCharacter, textBubble;
     [SerializeField]TMPro.TMP_Text title, text;
+    [SerializeField]GameObject button1, button2;
+    [SerializeField]TMPro.TMP_Text button1Text, button2Text;
     string currentText;
     int currentLetters, maxLetters;
     [SerializeField]float letterDelay;
@@ -17,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]Dialogue[] dialogueList;
     public static int selectedDialogue;
     Controls inputScheme;
+    bool endsWithChoices;
     
     void Update ()
     {
@@ -33,18 +36,44 @@ public class DialogueManager : MonoBehaviour
     }
     void Start()
     {
+        
         inputScheme = new Controls();
         inputScheme.Dialogue.Enable();
         inputScheme.Dialogue.Next.performed += NextLine;
         if (selectedDialogue < dialogueList.Length)
         {
+            StartDialogue(selectedDialogue);
             //the first time you have to use ReturnFirstLine cause we are modifying the marker forever for some reason (should be a struct)
-            SetupLine(dialogueList[selectedDialogue].ReturnFirstLine());
+            
+        }
+        
+        else 
+        {
+            
+            print("Error, Dialogue index out of bounds (selected "+selectedDialogue+" out of a maximum of "+dialogueList.Length+")");
+            SceneManager.LoadScene("Main Scene");
+        }
+    }
+    public void ChoiceSelected (bool first)
+    {
+        if (first)
+        {
+            StartDialogue(dialogueList[selectedDialogue].choìice1ID);
         }
         else 
         {
-            print("Error, Dialogue index out of bounds (selected "+selectedDialogue+" out of a maximum of "+dialogueList.Length+")");
+            StartDialogue(dialogueList[selectedDialogue].choice2ID);
         }
+    }
+    public void StartDialogue (int selected)
+    {
+        endsWithChoices=dialogueList[selected].showChoicesAtEnd;
+        selectedDialogue = selected;
+        button1.SetActive(false);
+        button2.SetActive(false);
+        button1Text.SetText(dialogueList[selected].choiceText1);
+        button2Text.SetText(dialogueList[selected].choiceText2);
+        SetupLine(dialogueList[selected].ReturnFirstLine());
     }
     void NextLine (UnityEngine.InputSystem.InputAction.CallbackContext input){
         SetupLine(dialogueList[selectedDialogue].ReturnNextLine());
@@ -68,8 +97,18 @@ public class DialogueManager : MonoBehaviour
         if (line == null)
         {
             //TODO end of conversation
-            SceneManager.LoadScene("Main Scene");
-            return;    
+            if (endsWithChoices)
+            {
+                button1.SetActive(true);
+                button2.SetActive(true);
+                return;
+            }
+            else 
+            {
+                SceneManager.LoadScene("Main Scene");
+                return;    
+            }
+            
         }
         if (line.textShowing)
         {

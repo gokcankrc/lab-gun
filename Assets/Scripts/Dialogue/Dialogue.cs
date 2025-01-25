@@ -8,6 +8,10 @@ public class Dialogue:ScriptableObject
 {
 	[SerializeField]DialogueLine[] lines;
 	int lineMarker = 0;
+	public bool showChoicesAtEnd;
+	public string choiceText1, choiceText2;
+	public int choìice1ID, choice2ID;
+	
 	public DialogueLine ReturnNextLine ()
 	{
 		

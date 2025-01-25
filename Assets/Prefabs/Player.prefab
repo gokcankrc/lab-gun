@@ -180,7 +180,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 600
+  playerSpeedWalk: 0
   maxSpeed: 200
+  maxSpeedWalk: 0
   resetTime: 0
 --- !u!114 &198497345837242150
 MonoBehaviour:
@@ -195,7 +197,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sets:
-  - spriteListDown:
+  - timePerFrame: 1
+    id: 0
+    looped: 1
+    spriteListDown:
     - {fileID: 21300000, guid: a2ae1c5ea7bb2ea4d899bdff9d3cb6d3, type: 3}
     - {fileID: 21300000, guid: eb28f16d637da2e4fa2b9740358da38e, type: 3}
     - {fileID: 21300000, guid: c97ab26d87b49e64682029eef43c5466, type: 3}
@@ -205,9 +210,26 @@ MonoBehaviour:
     spriteListUp: []
     spriteListLeft: []
     spriteListRight: []
-    timePerFrame: 1
-    id: 0
+  - timePerFrame: 0.075
+    id: 3
     looped: 1
+    spriteListDown:
+    - {fileID: 21300000, guid: 4986d5c0faf2f00498f32de30902a0f1, type: 3}
+    - {fileID: 21300000, guid: 0955d1b7cb3efa648b9622ecb9fb541f, type: 3}
+    - {fileID: 21300000, guid: 8e423f05fc00f454f87d47c40da52b3f, type: 3}
+    - {fileID: 21300000, guid: 729b2873bc2b1024aa59687791cba4f8, type: 3}
+    directional: 1
+    spriteListUp:
+    - {fileID: 21300000, guid: 3010945f62ce0e34bb58e44b07a74079, type: 3}
+    - {fileID: 21300000, guid: 07a64a1e4007e7648a8696cc2a9eaa88, type: 3}
+    - {fileID: 21300000, guid: e7edd79cc7e8ebf418df8c177b6d5c39, type: 3}
+    - {fileID: 21300000, guid: 7b4fada902b93bb4784da65a82d3d022, type: 3}
+    spriteListLeft: []
+    spriteListRight:
+    - {fileID: 21300000, guid: 4a1b38de2892e2346851fd299fb0b6f5, type: 3}
+    - {fileID: 21300000, guid: b7a8c5c2ca914844d9037dfdfe175c29, type: 3}
+    - {fileID: 21300000, guid: 3a42fca30bebd084584e806a298b2399, type: 3}
+    - {fileID: 21300000, guid: 0724db2a8b7ae114b9478f3757b0ee45, type: 3}
 --- !u!114 &-738033773703266790
 MonoBehaviour:
   m_ObjectHideFlags: 0
