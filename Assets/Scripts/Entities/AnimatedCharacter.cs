@@ -40,7 +40,9 @@ public class AnimatedCharacter : MonoBehaviour
 	}
 	public void Turn(Animation.Direction newDir)
 	{
-		//print ("turning "+newDir);
+		
+		print ("turning "+newDir);
+		currentDirection = newDir;
 		if (newDir == Animation.Direction.none)
 		{
 			return;
@@ -84,17 +86,19 @@ public class AnimatedCharacter : MonoBehaviour
 	public void StartAnimation ( Animation.AnimationId newId = Animation.AnimationId.idle, Animation.Direction dir = Animation.Direction.none, bool canInterrupt = false)
 	{
 		if (!canInterrupt && !looping && currentStep<current.Count()){
+			
 			return;
 		}
-		
-		if (currentId == newId && currentStep != -1 && looping == true)
+		if (dir != Animation.Direction.none && dir != currentDirection)
 		{
+			Turn(dir);
+		}
+		if (currentId == newId  && looping == true)
+		{
+			//print ("discarded change: same animation ("+currentId+" vs "+newId+")");
 			return;
 		}
-		if (dir != Animation.Direction.none)
-		{
-			currentDirection = dir;
-		}
+		currentDirection = dir;
 		currentId = newId;
 		SetAnimation(GetAnimationFor(newId));
 		currentStep = -1;
@@ -103,6 +107,7 @@ public class AnimatedCharacter : MonoBehaviour
 	}
 	void SetAnimation(Animation.AnimationSet anim)
 	{
+		//print ("Starting animation "+currentId);
 		current = anim.ReturnSet(currentDirection);
 		timePerStep = anim.timePerFrame;
 		looping= anim.looped;
@@ -179,36 +184,42 @@ namespace Animation
 	[Serializable]
 	public struct AnimationSet 
 	{
+		public float timePerFrame;
+		public AnimationId id;
+		public bool looped;
 		public Sprite[] spriteListDown;// doubles as default
 		public bool directional;
 		public Sprite[] spriteListUp;
 		public Sprite[] spriteListLeft;
 		public Sprite[] spriteListRight;
 		
-		public float timePerFrame;
-		public AnimationId id;
-		public bool looped;
+		
 
 		public Sprite[] ReturnSet(Direction dir)
 		{
+			Debug.Log("incoming "+dir);
 			if (directional)
 			{		
 				switch ((int)dir)
 				{
 					case (int)Direction.left:
 					{
+						Debug.Log("returning left");
 						return spriteListLeft;
 					}
 					case (int)Direction.right:
 					{
+						Debug.Log("returning left");
 						return spriteListRight;
 					}
 					case (int)Direction.up:
 					{
+						Debug.Log("returning left");
 						return spriteListUp;
 					}
 					case (int)Direction.down:
 					{
+						Debug.Log("returning left");
 						return spriteListDown;
 					}
 					default:

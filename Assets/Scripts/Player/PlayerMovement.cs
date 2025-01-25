@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
 	[SerializeField]Controls inputScheme;
-    [SerializeField]float playerSpeed;
-    [SerializeField]float maxSpeed, resetTime;
+    [SerializeField]float playerSpeed, playerSpeedWalk;
+    [SerializeField]float maxSpeed,maxSpeedWalk, resetTime;
     Rigidbody2D body;
     bool movingWithMouse;
+    bool ballMode;
     bool resetting;
     float resetTimeRemaining;
     AnimatedCharacter animationController;
@@ -40,13 +41,25 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-        if (movingWithMouse){
+        if (inputScheme.Movement.Directions.ReadValue<Vector2>() != Vector2.zero || movingWithMouse)
+        {
+            if (movingWithMouse){
+            SetBallMode(true);
             MoveToMouse();
+            }
+            else {
+                SetBallMode(false);
+                MoveThroughKeyboard();
+            }
         }
-        else {
-            MoveThroughKeyboard();
+        else 
+        {
+            if (Speed <=0.2f)
+            {
+                animationController.StartAnimation(Animation.AnimationId.idle,Animation.Direction.none, false);
+            }
         }
+        
         LimitSpeed();
         CheckResetTimer();
         CheckRotation();
@@ -62,7 +75,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    void SetBallMode(bool flag)
+    {
+        ballMode = flag;
+        if (flag)
+        {
 
+        }
+    }
     void CheckRotation()
     {
         if (AnimatedCharacter.VectorToDirection((Vector2)body.velocity) != currentDir)
@@ -76,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
         SceneManager.LoadScene("Main Scene");
     }
     void MoveThroughKeyboard(){
+        animationController.StartAnimation(Animation.AnimationId.walk,Animation.Direction.none, false);
         Vector2 moveVector = inputScheme.Movement.Directions.ReadValue<Vector2>();
         Move(moveVector);
     }
@@ -97,21 +118,41 @@ public class PlayerMovement : MonoBehaviour
         resetting = false;
     }
     void MoveToMouse(){
+        animationController.StartAnimation(Animation.AnimationId.run,Animation.Direction.none, false);
         Vector2 moveVector = (Vector2)Camera.main.ScreenToWorldPoint(inputScheme.Movement.MousePosition.ReadValue<Vector2>());
         moveVector -= (Vector2)transform.position;
 		Move(moveVector);
     }
     void Move(Vector2 vector){
+        
         Vector2 moveVector = vector.normalized;
-        moveVector*= playerSpeed*Time.fixedDeltaTime;
+        if (movingWithMouse)
+        {
+            moveVector*= playerSpeed*Time.fixedDeltaTime;
+        }
+        else 
+        {
+            moveVector*= playerSpeedWalk*Time.fixedDeltaTime;
+        }
 		body.AddForce(moveVector);
     }
     void LimitSpeed()
     {
         Rigidbody2D rb = transform.GetComponent<Rigidbody2D>();
-        if (rb.velocity.magnitude>maxSpeed)
+        if (ballMode)
         {
-            rb.velocity = rb.velocity.normalized*maxSpeed;
+            if (rb.velocity.magnitude>maxSpeed)
+            {
+                rb.velocity = rb.velocity.normalized*maxSpeed;
+            }
         }
+        else 
+        {
+            if (rb.velocity.magnitude>maxSpeedWalk)
+            {
+                rb.velocity = rb.velocity.normalized*maxSpeedWalk;
+            }
+        }
+        
     }
 }

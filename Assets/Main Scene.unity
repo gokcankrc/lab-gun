@@ -574,6 +574,86 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].id
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].looped
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].directional
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].timePerFrame
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListUp.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListDown.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListRight.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListUp.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3010945f62ce0e34bb58e44b07a74079, type: 3}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListUp.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 07a64a1e4007e7648a8696cc2a9eaa88, type: 3}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListUp.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: e7edd79cc7e8ebf418df8c177b6d5c39, type: 3}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListUp.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7b4fada902b93bb4784da65a82d3d022, type: 3}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListDown.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4986d5c0faf2f00498f32de30902a0f1, type: 3}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListDown.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0955d1b7cb3efa648b9622ecb9fb541f, type: 3}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListDown.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e423f05fc00f454f87d47c40da52b3f, type: 3}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListDown.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 729b2873bc2b1024aa59687791cba4f8, type: 3}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListRight.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4a1b38de2892e2346851fd299fb0b6f5, type: 3}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListRight.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: b7a8c5c2ca914844d9037dfdfe175c29, type: 3}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListRight.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3a42fca30bebd084584e806a298b2399, type: 3}
+    - target: {fileID: 198497345837242150, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: sets.Array.data[1].spriteListRight.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0724db2a8b7ae114b9478f3757b0ee45, type: 3}
     - target: {fileID: 870038252363638481, guid: 886a07fd2051196458f49d66bc995792, type: 3}
       propertyPath: m_Name
       value: Player
@@ -617,6 +697,14 @@ PrefabInstance:
     - target: {fileID: 3569270752699053960, guid: 886a07fd2051196458f49d66bc995792, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617335860509260270, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: maxSpeedWalk
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617335860509260270, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+      propertyPath: playerSpeedWalk
+      value: 800
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
