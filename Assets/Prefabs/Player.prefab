@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1558476783347286550}
   - component: {fileID: 4322003210481181532}
   - component: {fileID: 5617335860509260270}
+  - component: {fileID: 198497345837242150}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -149,7 +150,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &4322003210481181532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,3 +181,29 @@ MonoBehaviour:
   playerSpeed: 600
   maxSpeed: 200
   resetTime: 0
+--- !u!114 &198497345837242150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870038252363638481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1219f445741106447b8a003f592e69af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sets:
+  - spriteListDown:
+    - {fileID: 21300000, guid: a2ae1c5ea7bb2ea4d899bdff9d3cb6d3, type: 3}
+    - {fileID: 21300000, guid: eb28f16d637da2e4fa2b9740358da38e, type: 3}
+    - {fileID: 21300000, guid: c97ab26d87b49e64682029eef43c5466, type: 3}
+    - {fileID: 21300000, guid: ba13116aeb0bd634a9f685cb829dbaf3, type: 3}
+    - {fileID: 21300000, guid: 471ea0c08a0d08747897cc7f3fb00cbc, type: 3}
+    directional: 0
+    spriteListUp: []
+    spriteListLeft: []
+    spriteListRight: []
+    timePerFrame: 1
+    id: 0
+    looped: 1

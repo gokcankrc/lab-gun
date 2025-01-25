@@ -68,12 +68,25 @@ public class DialogueManager : MonoBehaviour
         if (line == null)
         {
             //TODO end of conversation
+            SceneManager.LoadScene("Main Scene");
             return;    
         }
+        if (line.textShowing)
+        {
+            title.SetText(line.title);
+            //text.SetText(line.text);
+            SetupText(line.text);
+            title.gameObject.SetActive(true);
+            text.gameObject.SetActive(true);
+            textBubble.gameObject.SetActive(true);
+        }
+        else 
+        {
+            title.gameObject.SetActive(false);
+            text.gameObject.SetActive(false);
+            textBubble.gameObject.SetActive(false);
+        }
         
-        title.SetText(line.title);
-        //text.SetText(line.text);
-        SetupText(line.text);
         leftCharacter.sprite = line.leftCharacter;
         if (leftCharacter.sprite == null)
         {
@@ -120,7 +133,7 @@ public class DialogueManager : MonoBehaviour
 public class DialogueLine
 {
     public Sprite leftCharacter,rightCharacter, background;    
-    public bool leftHighlighted, rightHighlighted, backgroundFadeIn,backgroundFadeOut;
+    public bool leftHighlighted, rightHighlighted, backgroundFadeIn,backgroundFadeOut, textShowing;
     public string title, text;
     public float fadeTime = 1f;
 }

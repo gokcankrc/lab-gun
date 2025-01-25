@@ -11,14 +11,20 @@ public class PlayerMovement : MonoBehaviour
     bool movingWithMouse;
     bool resetting;
     float resetTimeRemaining;
+    AnimatedCharacter animationController;
+    Animation.Direction currentDir = Animation.Direction.down;
 
     public float Speed => body.velocity.magnitude;
 
     // Start is called before the first frame update
     void Start()
     {
+        animationController = gameObject.GetComponent<AnimatedCharacter>();
+        if (animationController == null){
+            print (name+" has no Animator");
+        }
         body = gameObject.GetComponent<Rigidbody2D>();
-        if (body is null){
+        if (body == null){
             print (name+" has no Rigidbody2D");
         }
         inputScheme = new Controls();
@@ -34,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         if (movingWithMouse){
             MoveToMouse();
         }
@@ -42,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         }
         LimitSpeed();
         CheckResetTimer();
+        CheckRotation();
     }
     void CheckResetTimer()
     {
@@ -52,6 +60,15 @@ public class PlayerMovement : MonoBehaviour
             {
                 ResetStage();
             }
+        }
+    }
+
+    void CheckRotation()
+    {
+        if (AnimatedCharacter.VectorToDirection((Vector2)body.velocity) != currentDir)
+        {
+            currentDir = AnimatedCharacter.VectorToDirection((Vector2)body.velocity);
+            animationController.Turn(currentDir);
         }
     }
     public static void ResetStage ()
