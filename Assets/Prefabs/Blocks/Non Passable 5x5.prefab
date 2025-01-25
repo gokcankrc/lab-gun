@@ -9,9 +9,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3536508554615023451, guid: a96697eef7be1b94387eef9bf74b8ffc, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536508554615023451, guid: a96697eef7be1b94387eef9bf74b8ffc, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536508554615023451, guid: a96697eef7be1b94387eef9bf74b8ffc, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9e8364509d4a3f64c8bc1ffbd27c38a8, type: 3}
+      objectReference: {fileID: 21300000, guid: 7a5314b88c76a3f44bb54cccd387092e, type: 3}
     - target: {fileID: 3536508554615023451, guid: a96697eef7be1b94387eef9bf74b8ffc, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -24,13 +32,25 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3536508554615023451, guid: a96697eef7be1b94387eef9bf74b8ffc, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3786842563307942082, guid: a96697eef7be1b94387eef9bf74b8ffc, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3786842563307942082, guid: a96697eef7be1b94387eef9bf74b8ffc, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3786842563307942082, guid: a96697eef7be1b94387eef9bf74b8ffc, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3786842563307942082, guid: a96697eef7be1b94387eef9bf74b8ffc, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7794267572437597392, guid: a96697eef7be1b94387eef9bf74b8ffc, type: 3}
       propertyPath: m_LocalScale.x
