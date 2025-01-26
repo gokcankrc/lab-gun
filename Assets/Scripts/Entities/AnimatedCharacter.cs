@@ -41,7 +41,7 @@ public class AnimatedCharacter : MonoBehaviour
 	public void Turn(Animation.Direction newDir)
 	{
 		
-		print ("turning "+newDir);
+		//print ("turning "+newDir);
 		currentDirection = newDir;
 		if (newDir == Animation.Direction.none)
 		{
@@ -197,29 +197,29 @@ namespace Animation
 
 		public Sprite[] ReturnSet(Direction dir)
 		{
-			Debug.Log("incoming "+dir);
+			//Debug.Log("incoming "+dir);
 			if (directional)
 			{		
 				switch ((int)dir)
 				{
 					case (int)Direction.left:
 					{
-						Debug.Log("returning left");
+						//Debug.Log("returning left");
 						return spriteListLeft;
 					}
 					case (int)Direction.right:
 					{
-						Debug.Log("returning left");
+						//Debug.Log("returning left");
 						return spriteListRight;
 					}
 					case (int)Direction.up:
 					{
-						Debug.Log("returning left");
+						//Debug.Log("returning left");
 						return spriteListUp;
 					}
 					case (int)Direction.down:
 					{
-						Debug.Log("returning left");
+						//Debug.Log("returning left");
 						return spriteListDown;
 					}
 					default:
