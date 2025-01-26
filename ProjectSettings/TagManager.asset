@@ -42,8 +42,20 @@ TagManager:
   - name: Floor
     uniqueID: 454682795
     locked: 0
+  - name: BackWalls
+    uniqueID: 1952972827
+    locked: 0
+  - name: Shadows
+    uniqueID: 2631226505
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Top Furniture Shadows
+    uniqueID: 555398183
+    locked: 0
+  - name: Top Furniture
+    uniqueID: 39033823
     locked: 0
   - name: Side Walls
     uniqueID: 2501428067

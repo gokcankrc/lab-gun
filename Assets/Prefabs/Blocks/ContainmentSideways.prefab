@@ -114,6 +114,8 @@ MonoBehaviour:
   health: 4
   healthSprites:
   - {fileID: 21300000, guid: ad700d2bac1c11a4eb14ea90a77180ef, type: 3}
-  - {fileID: 21300000, guid: df4791c677563124e83832d0156c9f03, type: 3}
+  - {fileID: 21300000, guid: 305691704cfa80b40a5e5f9dbe716fba, type: 3}
+  - {fileID: 21300000, guid: 033a16b7449687841baf4797c0edaec1, type: 3}
+  - {fileID: 21300000, guid: b682d74175bebd24da6049bee816c9e7, type: 3}
   sprRenderer: {fileID: 674926163609747864}
   hurtingSpeedThreshold: 3
