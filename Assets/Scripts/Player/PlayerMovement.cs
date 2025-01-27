@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D body;
     bool movingWithMouse;
     bool ballMode;
-    bool resetting;
+    public static bool resetting;
+    bool canInterruptReset = true;
     float resetTimeRemaining;
     AnimatedCharacter animationController;
     Animation.Direction currentDir = Animation.Direction.down;
@@ -54,8 +55,19 @@ public class PlayerMovement : MonoBehaviour
         }
         else 
         {
+            
+            if (!movingWithMouse && Speed> 0.05f)
+            {
+                body.velocity /= 1.5f;
+            }
+            
             if (Speed <=0.2f)
             {
+                if (Speed <=0.05f &&Speed>0)
+                {
+                    body.velocity *=0;
+                }
+                
                 animationController.StartAnimation(Animation.AnimationId.idle,Animation.Direction.none, false);
             }
         }
@@ -93,9 +105,15 @@ public class PlayerMovement : MonoBehaviour
     }
     public static void ResetStage ()
     {
+        
         SceneManager.LoadScene("Main Scene");
+        resetting = false;
     }
     void MoveThroughKeyboard(){
+        if (resetting)
+        {
+            return;
+        }
         animationController.StartAnimation(Animation.AnimationId.walk,Animation.Direction.none, false);
         Vector2 moveVector = inputScheme.Movement.Directions.ReadValue<Vector2>();
         Move(moveVector);
@@ -110,14 +128,43 @@ public class PlayerMovement : MonoBehaviour
     }
     public void StartReset (UnityEngine.InputSystem.InputAction.CallbackContext input)
     {
-        resetTimeRemaining = resetTime;
-        resetting = true;
+        if (canInterruptReset)
+        {
+            canInterruptReset = true;
+            Reset();
+        }
+        
+    }
+    public void ForceReset ()
+    {
+        canInterruptReset = false;
+        Reset();
+    }
+    void Reset()
+    {
+        if (!resetting)
+        {
+            animationController.StartAnimation(Animation.AnimationId.rewindingTime,Animation.Direction.none, true);
+            resetTimeRemaining = resetTime;
+            resetting = true;
+        }
+        
     }
     void StopReset (UnityEngine.InputSystem.InputAction.CallbackContext input)
     {
+        if (resetTimeRemaining <= 0 || !canInterruptReset)
+        {
+            return;
+        }
+        print ("stopping reset");
+        animationController.StartAnimation(Animation.AnimationId.idle,Animation.Direction.none, true);
         resetting = false;
     }
     void MoveToMouse(){
+        if (resetting)
+        {
+            return;
+        }
         animationController.StartAnimation(Animation.AnimationId.run,Animation.Direction.none, false);
         Vector2 moveVector = (Vector2)Camera.main.ScreenToWorldPoint(inputScheme.Movement.MousePosition.ReadValue<Vector2>());
         moveVector -= (Vector2)transform.position;

@@ -11,6 +11,7 @@ public class BasicScientist : Enemy, ILevelObject
     [SerializeField] private float attackDistance = 5f;
     [SerializeField] private float moveSpeed = 5f;
     private float engagedTimer;
+    AnimatedCharacter animationController;
 
     [ShowInInspector] private EnemyState State => fsm?.State ?? EnemyState.Idle;
     [ShowInInspector, ReadOnly] public int LevelIndex { get; set; }
@@ -19,11 +20,17 @@ public class BasicScientist : Enemy, ILevelObject
     {
         fsm = new StateMachine<EnemyState>(this);
         fsm.ChangeState(EnemyState.Idle);
+        animationController = gameObject.GetComponent<AnimatedCharacter>();
+        if (animationController == null){
+            print (name+" has no Animator");
+        }
     }
 
     private void Update()
     {
+        CheckRotation();
         fsm.Driver.Update.Invoke();
+        
     }
 
     [Button]
@@ -69,6 +76,7 @@ public class BasicScientist : Enemy, ILevelObject
         if (engagedTimer > 0)
         {
             transform.position = Vector3.MoveTowards(transform.position, Player.I.transform.position, moveSpeed * Time.deltaTime);
+            animationController.StartAnimation(Animation.AnimationId.walk,Animation.Direction.none, false);
         }
 
         if (CanAttack())
@@ -79,6 +87,7 @@ public class BasicScientist : Enemy, ILevelObject
 
     private IEnumerator Attacking_Enter()
     {
+        animationController.StartAnimation(Animation.AnimationId.attack,Animation.Direction.none, true);
         yield return new WaitForSeconds(2f);
         var projectile = Instantiate(basicProjectilePrefab, transform.position, Quaternion.identity, ProjectileParent.I);
         projectile.Init(Player.I.Pos - transform.position);
@@ -86,4 +95,9 @@ public class BasicScientist : Enemy, ILevelObject
         fsm.ChangeState(EnemyState.Following);
     }
     #endregion
+    void CheckRotation()
+    {
+        
+        animationController.Turn(AnimatedCharacter.VectorToDirection((Vector2)Player.I.Pos-(Vector2)transform.position));
+    }
 }

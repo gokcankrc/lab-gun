@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2454602950988392183}
   - component: {fileID: 3826222949597392913}
   - component: {fileID: 8968822150589112502}
+  - component: {fileID: 8988554230822157569}
   m_Layer: 9
   m_Name: Scientist
   m_TagString: Untagged
@@ -164,4 +165,61 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &8988554230822157569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197310644224125483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1219f445741106447b8a003f592e69af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sets:
+  - timePerFrame: 1
+    id: 0
+    looped: 1
+    spriteListDown:
+    - {fileID: 21300000, guid: f14bc1e3ee02c524ab8ce1a99e281026, type: 3}
+    directional: 1
+    spriteListUp:
+    - {fileID: 21300000, guid: 58c7cc597c29a2945946d402a066ddd1, type: 3}
+    spriteListLeft:
+    - {fileID: 21300000, guid: b373177e902b4f04aa793131c25b740c, type: 3}
+    spriteListRight:
+    - {fileID: 21300000, guid: 01a20726462b60a4f867d2785efd605d, type: 3}
+  - timePerFrame: 0.2
+    id: 2
+    looped: 1
+    spriteListDown:
+    - {fileID: 21300000, guid: f14bc1e3ee02c524ab8ce1a99e281026, type: 3}
+    - {fileID: 21300000, guid: c6e3c6c79cc770e428e325bfe8a70289, type: 3}
+    - {fileID: 21300000, guid: 976dcd8553cd32040be2dd7a76752965, type: 3}
+    - {fileID: 21300000, guid: 7abe591251ecbdc42928a7ec13eaf564, type: 3}
+    directional: 1
+    spriteListUp:
+    - {fileID: 21300000, guid: 58c7cc597c29a2945946d402a066ddd1, type: 3}
+    - {fileID: 21300000, guid: 45534204d9f26564f895d8723cd9f29a, type: 3}
+    - {fileID: 21300000, guid: 1b7e6c031cd9bf64ba347afdeb4c0462, type: 3}
+    - {fileID: 21300000, guid: 8934e4aedc0669843a4d789a26d84167, type: 3}
+    spriteListLeft:
+    - {fileID: 21300000, guid: b373177e902b4f04aa793131c25b740c, type: 3}
+    - {fileID: 21300000, guid: cb1abda9b7f2d834385253c3dfe0c56e, type: 3}
+    - {fileID: 21300000, guid: 2a0e859e27055134e8ecea576182dd1a, type: 3}
+    - {fileID: 21300000, guid: 03495c49e41c5e84ea9e7b026de40d6b, type: 3}
+    spriteListRight:
+    - {fileID: 21300000, guid: 01a20726462b60a4f867d2785efd605d, type: 3}
+    - {fileID: 21300000, guid: ddb2f93e910ba7842a23ecfab2dd6a6c, type: 3}
+    - {fileID: 21300000, guid: ec2a8463cdf324943a38d6514429decf, type: 3}
+    - {fileID: 21300000, guid: 5575166f94fe2264ba28479052315d8b, type: 3}
+  - timePerFrame: 0
+    id: 1
+    looped: 0
+    spriteListDown: []
+    directional: 0
+    spriteListUp: []
+    spriteListLeft: []
+    spriteListRight: []

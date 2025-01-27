@@ -40,13 +40,13 @@ public class AnimatedCharacter : MonoBehaviour
 	}
 	public void Turn(Animation.Direction newDir)
 	{
-		
 		//print ("turning "+newDir);
-		currentDirection = newDir;
-		if (newDir == Animation.Direction.none)
+		
+		if (newDir == Animation.Direction.none ||currentDirection == newDir)
 		{
 			return;
 		}
+		currentDirection = newDir;
 		current = GetAnimationFor(currentId).ReturnSet(currentDirection);
 		if (currentStep >=current.Count())
 		{
@@ -85,7 +85,7 @@ public class AnimatedCharacter : MonoBehaviour
 	}
 	public void StartAnimation ( Animation.AnimationId newId = Animation.AnimationId.idle, Animation.Direction dir = Animation.Direction.none, bool canInterrupt = false)
 	{
-		if (!canInterrupt && !looping && currentStep<current.Count()){
+		if (!canInterrupt && !looping ){
 			
 			return;
 		}
@@ -98,7 +98,8 @@ public class AnimatedCharacter : MonoBehaviour
 			//print ("discarded change: same animation ("+currentId+" vs "+newId+")");
 			return;
 		}
-		currentDirection = dir;
+		//print ("starting "+newId);
+		//currentDirection = dir;
 		currentId = newId;
 		SetAnimation(GetAnimationFor(newId));
 		currentStep = -1;

@@ -81,7 +81,7 @@ public class Player : Singleton<Player>,TaggedObject
 
     private void Die()
     {
-        movement.StartReset(new InputAction.CallbackContext());
+        movement.ForceReset();
     }
 
     public List<PlayerTag> GetTagList()
