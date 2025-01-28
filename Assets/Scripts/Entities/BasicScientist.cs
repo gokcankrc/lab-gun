@@ -11,13 +11,17 @@ public class BasicScientist : Enemy, ILevelObject
     [SerializeField] private float attackDistance = 5f;
     [SerializeField] private float moveSpeed = 5f;
     private float engagedTimer;
+    bool alive = true;
     AnimatedCharacter animationController;
-
+    [SerializeField]int hp = 5;
+    [SerializeField]GameObject body;
+    Rigidbody2D rb;
     [ShowInInspector] private EnemyState State => fsm?.State ?? EnemyState.Idle;
     [ShowInInspector, ReadOnly] public int LevelIndex { get; set; }
 
     private void Awake()
     {
+        rb = gameObject.GetComponent<Rigidbody2D>();
         fsm = new StateMachine<EnemyState>(this);
         fsm.ChangeState(EnemyState.Idle);
         animationController = gameObject.GetComponent<AnimatedCharacter>();
@@ -28,6 +32,10 @@ public class BasicScientist : Enemy, ILevelObject
 
     private void Update()
     {
+        if (!alive)
+        {
+            return;
+        }
         CheckRotation();
         fsm.Driver.Update.Invoke();
         
@@ -63,7 +71,46 @@ public class BasicScientist : Enemy, ILevelObject
 
         return hit.collider == null;
     }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (!alive)
+        {
+            return;
+        }
+        var player = other.transform.GetComponent<PlayerMovement>();
+        if (player != null)
+        {
+            TakeDamage(player.GetSpeed());
+        }
+    }
+    void TakeDamage (float impactSpeed)
+    {
 
+        hp -= (int)impactSpeed*2;
+        if (hp <= 0)
+        {
+            Die();
+        }
+    }
+    void Die ()
+    {
+        alive = false;
+        
+        float timeToDie = animationController.StartAnimation(Animation.AnimationId.die,Animation.Direction.none, false);
+        Destroy(gameObject.GetComponent<Collider2D>());
+        rb.velocity = Vector2.zero;
+        if (body != null)
+        {
+            FadeInItem corpse = Instantiate (body, transform.position, Quaternion.identity).GetComponent<FadeInItem>();
+            if (corpse != null)
+            {
+                corpse.Setup(timeToDie);
+            }
+        }
+
+        Destroy(gameObject, timeToDie);
+        
+    }
     #region Finite State Machine
     private void Following_Update()
     {
@@ -87,8 +134,9 @@ public class BasicScientist : Enemy, ILevelObject
 
     private IEnumerator Attacking_Enter()
     {
-        animationController.StartAnimation(Animation.AnimationId.attack,Animation.Direction.none, true);
+        
         yield return new WaitForSeconds(2f);
+        animationController.StartAnimation(Animation.AnimationId.attack,Animation.Direction.none, true);
         var projectile = Instantiate(basicProjectilePrefab, transform.position, Quaternion.identity, ProjectileParent.I);
         projectile.Init(Player.I.Pos - transform.position);
         projectile.transform.position += Vector3.back;

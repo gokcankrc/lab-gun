@@ -83,11 +83,11 @@ public class AnimatedCharacter : MonoBehaviour
 		//default value
 		return sets[0];
 	}
-	public void StartAnimation ( Animation.AnimationId newId = Animation.AnimationId.idle, Animation.Direction dir = Animation.Direction.none, bool canInterrupt = false)
+	public float StartAnimation ( Animation.AnimationId newId = Animation.AnimationId.idle, Animation.Direction dir = Animation.Direction.none, bool canInterrupt = false)
 	{
 		if (!canInterrupt && !looping ){
 			
-			return;
+			return 0;
 		}
 		if (dir != Animation.Direction.none && dir != currentDirection)
 		{
@@ -96,7 +96,7 @@ public class AnimatedCharacter : MonoBehaviour
 		if (currentId == newId  && looping == true)
 		{
 			//print ("discarded change: same animation ("+currentId+" vs "+newId+")");
-			return;
+			return 0;
 		}
 		//print ("starting "+newId);
 		//currentDirection = dir;
@@ -105,6 +105,12 @@ public class AnimatedCharacter : MonoBehaviour
 		currentStep = -1;
 		
 		GetNextStep();
+		float result = (float)current.Count()*timePerStep - 0.01f;
+		if (result < 0)
+		{
+			result = 0;
+		}
+		return result;
 	}
 	void SetAnimation(Animation.AnimationSet anim)
 	{

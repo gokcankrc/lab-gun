@@ -17,7 +17,10 @@ public class PlayerMovement : MonoBehaviour
     Animation.Direction currentDir = Animation.Direction.down;
 
     public float Speed => body.velocity.magnitude;
-
+    public float GetSpeed()
+    {
+        return Speed;
+    }
     // Start is called before the first frame update
     void Start()
     {

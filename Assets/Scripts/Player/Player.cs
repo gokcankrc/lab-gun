@@ -36,6 +36,7 @@ public class Player : Singleton<Player>,TaggedObject
         }
         
     }
+    
     private void OnCollisionEnter2D(Collision2D other)
     {
         List<string> removeList = new List<string>(); 

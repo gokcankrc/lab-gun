@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 197310644224125483}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -139,6 +139,8 @@ MonoBehaviour:
   basicProjectilePrefab: {fileID: 3594240224001032850, guid: 902251cfa0df68147a3e73ef22eb6fe8, type: 3}
   attackDistance: 5
   moveSpeed: 5
+  hp: 5
+  body: {fileID: 0}
 --- !u!50 &8968822150589112502
 Rigidbody2D:
   serializedVersion: 4
