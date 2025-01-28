@@ -24,6 +24,12 @@ public class GameManager : Singleton<GameManager>
                    $"{Color.white.EncapsulateString(gameState.ToString())} -> " +
                    $"{Color.white.EncapsulateString(state.ToString())}.", Logger.DomainType.System);
         gameState = state;
+
+        if (MusicManager.I != null)
+        {
+            MusicManager.I.GameStateChanged(state);
+        }
+        
     }
 
     public void AddLevel(int index, Level level)

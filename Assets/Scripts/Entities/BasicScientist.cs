@@ -101,7 +101,7 @@ public class BasicScientist : Enemy, ILevelObject
         rb.velocity = Vector2.zero;
         if (body != null)
         {
-            FadeInItem corpse = Instantiate (body, transform.position, Quaternion.identity).GetComponent<FadeInItem>();
+            FadeInItem corpse = Instantiate (body, transform.position+new Vector3(0,0,0.01f), Quaternion.identity).GetComponent<FadeInItem>();
             if (corpse != null)
             {
                 corpse.Setup(timeToDie);
