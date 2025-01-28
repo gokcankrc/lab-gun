@@ -4,7 +4,7 @@ using UnityEngine;
 using Ky;
 public class MusicManager : Singleton<MusicManager>
 {
-    [SerializeField]AudioSource basic, combat, rewind;
+    [SerializeField]AudioSource basic, combat, rewind, siren;
     [SerializeField] float fadeTimeForCombat;
     static float musicVolume = 0.4f;
     static bool muteMusic; 
@@ -65,6 +65,7 @@ public class MusicManager : Singleton<MusicManager>
             }
             case (int)GameState.InBreakout :
             {
+                siren.Play();
                 combatStarted = true;
                 break;
             }
