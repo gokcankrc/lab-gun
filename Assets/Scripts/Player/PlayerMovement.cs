@@ -25,11 +25,13 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         animationController = gameObject.GetComponent<AnimatedCharacter>();
-        if (animationController == null){
+        if (animationController == null)
+        {
             print (name+" has no Animator");
         }
         body = gameObject.GetComponent<Rigidbody2D>();
-        if (body == null){
+        if (body == null)
+        {
             print (name+" has no Rigidbody2D");
         }
         inputScheme = new Controls();
@@ -40,6 +42,15 @@ public class PlayerMovement : MonoBehaviour
         inputScheme.Movement.Reset.started += StartReset;
         inputScheme.Movement.Reset.canceled += StopReset;
         
+    }
+    void OnDestroy()
+    {
+        inputScheme.Movement.Disable();
+        inputScheme.Movement.MouseClick.started -= StartMovement;
+        //inputScheme.Movement.MouseClick.performed -= StopMovement;
+        inputScheme.Movement.MouseClick.canceled -= StopMovement;
+        inputScheme.Movement.Reset.started -= StartReset;
+        inputScheme.Movement.Reset.canceled -= StopReset;
     }
 
     // Update is called once per frame
@@ -147,6 +158,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!resetting)
         {
+            //print ("Starting Reset");
             animationController.StartAnimation(Animation.AnimationId.rewindingTime,Animation.Direction.none, true);
             resetTimeRemaining = resetTime;
             resetting = true;
@@ -159,8 +171,8 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        print ("stopping reset");
-        animationController.StartAnimation(Animation.AnimationId.idle,Animation.Direction.none, true);
+        //print ("stopping reset");
+        animationController.StopAnimation();
         resetting = false;
     }
     void MoveToMouse(){

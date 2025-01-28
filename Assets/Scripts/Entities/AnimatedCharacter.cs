@@ -83,6 +83,11 @@ public class AnimatedCharacter : MonoBehaviour
 		//default value
 		return sets[0];
 	}
+	public void StopAnimation ()
+	{
+		looping = true;
+		StartAnimation(Animation.AnimationId.idle,Animation.Direction.none,true);
+	}
 	public float StartAnimation ( Animation.AnimationId newId = Animation.AnimationId.idle, Animation.Direction dir = Animation.Direction.none, bool canInterrupt = false)
 	{
 		if (!canInterrupt && !looping ){
