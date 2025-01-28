@@ -4,10 +4,11 @@ using UnityEngine;
 using Ky;
 public class MusicManager : Singleton<MusicManager>
 {
-    [SerializeField]AudioSource basic, combat;
+    [SerializeField]AudioSource basic, combat, rewind;
     [SerializeField] float fadeTimeForCombat;
     static float musicVolume = 0.4f;
-    static bool muteMusic;
+    static bool muteMusic; 
+    static bool rewinded;
     bool combatStarted;
     float timePassed, combatTimePassed;
     static float trackTime;
@@ -25,6 +26,11 @@ public class MusicManager : Singleton<MusicManager>
         {
             basic.mute = true;
             combat.mute = true;
+        }
+        if (rewinded)
+        {
+            rewinded = false;
+            rewind.Play();
         }
     }
     void Update ()
@@ -67,6 +73,7 @@ public class MusicManager : Singleton<MusicManager>
     }
     public void Resetting ()
     {
+        rewinded = true;
         trackTime = basic.time;
     }
 }
