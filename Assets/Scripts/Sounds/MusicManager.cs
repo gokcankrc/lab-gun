@@ -6,8 +6,8 @@ public class MusicManager : Singleton<MusicManager>
 {
     [SerializeField]AudioSource basic, combat, rewind, siren;
     [SerializeField] float fadeTimeForCombat;
-    public static float musicVolume = 0.4f;
-    public static float soundsVolume = 0.4f;
+    public static float musicVolume;
+    public static float soundsVolume;
     static bool muteMusic; 
     static bool rewinded;
     bool combatStarted;

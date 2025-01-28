@@ -28,8 +28,7 @@ public class MainMenu : MonoBehaviour
     }
     public void StartGame()
     {
-        DialogueManager.selectedDialogue = 0;
-        SceneManager.LoadScene("Dialogues");
+        DialogueManager.StartDialogueScene(0);
     }
     public void Quit ()
     {

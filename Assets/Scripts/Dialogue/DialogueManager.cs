@@ -94,6 +94,11 @@ public class DialogueManager : MonoBehaviour
         currentLetters++;
         text.SetText(currentText.Remove(currentLetters,maxLetters-currentLetters));
     }
+    public static void StartDialogueScene (int index)
+    {
+        DialogueManager.selectedDialogue = index;
+        SceneManager.LoadScene("Dialogues");
+    }
     void SetupLine(DialogueLine line)
     {
         if (line == null)
