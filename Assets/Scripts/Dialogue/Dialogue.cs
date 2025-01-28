@@ -11,7 +11,7 @@ public class Dialogue:ScriptableObject
 	public bool showChoicesAtEnd;
 	public string choiceText1, choiceText2;
 	public int choìice1ID, choice2ID;
-	
+	public bool isEnding;
 	public DialogueLine ReturnNextLine ()
 	{
 		

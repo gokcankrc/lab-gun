@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]TMPro.TMP_Text button1Text, button2Text;
     string currentText;
     int currentLetters, maxLetters;
+    bool willEnd;
     [SerializeField]float letterDelay;
     float timeTillNextLetter;
     [SerializeField]Color notHihlightedColor;
@@ -69,6 +70,7 @@ public class DialogueManager : MonoBehaviour
     {
         endsWithChoices=dialogueList[selected].showChoicesAtEnd;
         selectedDialogue = selected;
+        willEnd = dialogueList[selected].isEnding;
         button1.SetActive(false);
         button2.SetActive(false);
         button1Text.SetText(dialogueList[selected].choiceText1);
@@ -105,7 +107,15 @@ public class DialogueManager : MonoBehaviour
             }
             else 
             {
-                SceneManager.LoadScene("Main Scene");
+                if (willEnd)
+                {
+                    SceneManager.LoadScene("Main Menu");
+                }
+                else 
+                {
+                    SceneManager.LoadScene("Main Scene");
+                }
+                
                 return;    
             }
             
