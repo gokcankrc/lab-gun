@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Ky;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -37,7 +38,8 @@ public class GeneralVfxSpawner : MonoBehaviour
 
     private void OnDestroy()
     {
-        Spawn(spawnOnDestroy);
+        // temporary potential error fix
+        GeneralVfxParent.I.GetComponent<GeneralVfxParent>()?.StartCoroutine(SpawnOneFrameDelay(spawnOnDestroy));
     }
 
     private void Update()
@@ -51,6 +53,13 @@ public class GeneralVfxSpawner : MonoBehaviour
                 Spawn(true);
             }
         }
+    }
+
+    private IEnumerator SpawnOneFrameDelay(bool active)
+    {
+        if (!active) yield break;
+        yield return null;
+        Spawn(true);
     }
 
     public void Spawn(bool active)
