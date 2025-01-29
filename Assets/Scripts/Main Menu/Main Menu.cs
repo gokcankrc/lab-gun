@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField]GameObject mainContainer, optionsContainer;
+    [SerializeField]GameObject mainContainer, optionsContainer, fakeQuitContainer;
     [SerializeField]Slider soundSlider, musicSlider;
     static bool firstSetupDone;
     bool startGame = false;
@@ -38,11 +38,14 @@ public class MainMenu : MonoBehaviour
     public void Quit ()
     {
         // it's going to be web-based, can't really quit...
+        // still, there's a joke screen
+        SetScreen(MainMenuLayers.fakeQuit);
     }
     void SetAllScreensInactive()
     {
         mainContainer.SetActive(false);
         optionsContainer.SetActive(false);
+        fakeQuitContainer.SetActive(false);
     }
     public void SetOptionsScreen()
     {
@@ -67,6 +70,11 @@ public class MainMenu : MonoBehaviour
                 optionsContainer.SetActive(true);
                 break;
             }
+            case (int)MainMenuLayers.fakeQuit:
+            {
+                fakeQuitContainer.SetActive(true);
+                break;
+            }
         }
     }
     public void SetMusicVolume ()
@@ -82,6 +90,7 @@ public class MainMenu : MonoBehaviour
 public enum MainMenuLayers
 {
     main,
-    options
+    options,
+    fakeQuit
 }
 

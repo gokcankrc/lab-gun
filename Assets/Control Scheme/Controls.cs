@@ -62,6 +62,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""0427a516-eea8-4636-952b-efe4571870c3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""730ad5a5-e1a3-44cb-8120-16790c4782ef"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -203,6 +223,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Movement_MousePosition = m_Movement.FindAction("MousePosition", throwIfNotFound: true);
         m_Movement_Directions = m_Movement.FindAction("Directions", throwIfNotFound: true);
         m_Movement_Reset = m_Movement.FindAction("Reset", throwIfNotFound: true);
+        m_Movement_Escape = m_Movement.FindAction("Escape", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_Next = m_Dialogue.FindAction("Next", throwIfNotFound: true);
@@ -277,6 +298,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_MousePosition;
     private readonly InputAction m_Movement_Directions;
     private readonly InputAction m_Movement_Reset;
+    private readonly InputAction m_Movement_Escape;
     public struct MovementActions
     {
         private @Controls m_Wrapper;
@@ -285,6 +307,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @MousePosition => m_Wrapper.m_Movement_MousePosition;
         public InputAction @Directions => m_Wrapper.m_Movement_Directions;
         public InputAction @Reset => m_Wrapper.m_Movement_Reset;
+        public InputAction @Escape => m_Wrapper.m_Movement_Escape;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -306,6 +329,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Reset.started += instance.OnReset;
             @Reset.performed += instance.OnReset;
             @Reset.canceled += instance.OnReset;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -322,6 +348,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Reset.started -= instance.OnReset;
             @Reset.performed -= instance.OnReset;
             @Reset.canceled -= instance.OnReset;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -391,6 +420,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMousePosition(InputAction.CallbackContext context);
         void OnDirections(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
     public interface IDialogueActions
     {

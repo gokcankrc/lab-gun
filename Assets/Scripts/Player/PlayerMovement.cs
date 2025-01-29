@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         inputScheme.Movement.MouseClick.canceled += StopMovement;
         inputScheme.Movement.Reset.started += StartReset;
         inputScheme.Movement.Reset.canceled += StopReset;
+        inputScheme.Movement.Escape.performed += ShowOptions;
         
     }
     void OnDestroy()
@@ -51,7 +52,9 @@ public class PlayerMovement : MonoBehaviour
         inputScheme.Movement.MouseClick.canceled -= StopMovement;
         inputScheme.Movement.Reset.started -= StartReset;
         inputScheme.Movement.Reset.canceled -= StopReset;
+        inputScheme.Movement.Escape.performed -= ShowOptions;
     }
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -136,6 +139,9 @@ public class PlayerMovement : MonoBehaviour
     void StartMovement (UnityEngine.InputSystem.InputAction.CallbackContext input){
         
         movingWithMouse = true;
+    }
+    void ShowOptions (UnityEngine.InputSystem.InputAction.CallbackContext input){
+        OptionsMenu.I.Toggle();
     }
     void StopMovement (UnityEngine.InputSystem.InputAction.CallbackContext input){
         movingWithMouse = false;
