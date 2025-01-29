@@ -35,6 +35,11 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
+    void OnDestroy()
+    {
+        inputScheme.Dialogue.Disable();
+        inputScheme.Dialogue.Next.performed -= NextLine;
+    }
     void Start()
     {
         
@@ -118,6 +123,7 @@ public class DialogueManager : MonoBehaviour
                 }
                 else 
                 {
+                    print ("Switching to main");
                     SceneManager.LoadScene("Main Scene");
                 }
                 

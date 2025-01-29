@@ -6,14 +6,25 @@ public class ConditionalBreakable : MonoBehaviour,SpecialCollisionForTag
 {
     [SerializeField] private GameObject destroyedDecalPrefab;
     [SerializeField] private int health = 1;
-    [SerializeField] private float hurtingSpeedThreshold;
+    [SerializeField] private float hurtingSpeedThreshold, zOffsetForDecal;
     [SerializeField] private PlayerTag [] conditionList;
     [SerializeField] private bool needsAllConditions;
     [SerializeField] ConditionalBreakable [] linkedParts;
     [SerializeField]private bool ignoreCollisionForTagReset;
     private void OnCollisionEnter2D(Collision2D other)
     {
+
         var tagObject = other.transform.GetComponent<TaggedObject>();
+        ProcessCollision(tagObject);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+        var tagObject = other.transform.GetComponent<TaggedObject>();
+        ProcessCollision(tagObject);
+    }
+    void ProcessCollision (TaggedObject tagObject)
+    {
         if (tagObject != null)
         {
             
@@ -73,7 +84,6 @@ public class ConditionalBreakable : MonoBehaviour,SpecialCollisionForTag
             }
         }
     }
-
     private void TakeDamage()
     {
         // TODO: Show cracks
@@ -98,7 +108,7 @@ public class ConditionalBreakable : MonoBehaviour,SpecialCollisionForTag
         }
         if (destroyedDecalPrefab != null)
         {
-            Instantiate(destroyedDecalPrefab, transform.position, Quaternion.identity, DecalParent.I);
+            Instantiate(destroyedDecalPrefab, transform.position+new Vector3(0,0,zOffsetForDecal), Quaternion.identity, DecalParent.I);
         }
         
         Destroy(gameObject);

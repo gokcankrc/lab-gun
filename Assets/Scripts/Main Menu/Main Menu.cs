@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField]GameObject mainContainer, optionsContainer;
     [SerializeField]Slider soundSlider, musicSlider;
     static bool firstSetupDone;
+    bool startGame = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +25,15 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (startGame)
+        {
+            DialogueManager.StartDialogueScene(0);
+        }
     }
     public void StartGame()
     {
-        DialogueManager.StartDialogueScene(0);
+        //print ("starting game from main menu");
+        startGame = true;
     }
     public void Quit ()
     {

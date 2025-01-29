@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b92bcab7d7572d46a0a9364dcace0e4, type: 3}
-  m_Name: Test Dialogue
+  m_Name: Ending 1
   m_EditorClassIdentifier: 
   lines:
   - leftCharacter: {fileID: 0}
@@ -21,10 +21,8 @@ MonoBehaviour:
     backgroundFadeIn: 1
     backgroundFadeOut: 1
     textShowing: 1
-    title: testity
-    text: very long text to test text partial displaying and completion and you know,
-      like, time to display something stupidly long, how it fits into the screen,
-      the usual stff, ya know. ya know, right? Ya, ya know
+    title: hello
+    text: you are currently in conversation 2, gj
     fadeTime: 1
   - leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
@@ -34,8 +32,8 @@ MonoBehaviour:
     backgroundFadeIn: 0
     backgroundFadeOut: 0
     textShowing: 1
-    title: mo
-    text: helloooooooooo
+    title: 2
+    text: 2
     fadeTime: 1
   - leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
@@ -45,8 +43,8 @@ MonoBehaviour:
     backgroundFadeIn: 1
     backgroundFadeOut: 0
     textShowing: 1
-    title: what
-    text: still going?
+    title: 2
+    text: 22
     fadeTime: 1
   - leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
@@ -56,11 +54,11 @@ MonoBehaviour:
     backgroundFadeIn: 0
     backgroundFadeOut: 1
     textShowing: 1
-    title: go
-    text: then go
+    title: 2
+    text: test
     fadeTime: 1
-  showChoicesAtEnd: 1
-  choiceText1: 2 pill
-  choiceText2: 3 pill
-  "cho\xECice1ID": 1
-  choice2ID: 2
+  showChoicesAtEnd: 0
+  choiceText1: 
+  choiceText2: 
+  "cho\xECice1ID": 0
+  choice2ID: 0

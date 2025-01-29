@@ -119,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public static void ResetStage ()
     {
+        //print ("reset");
         MusicManager.I.Resetting();
         SceneManager.LoadScene("Main Scene");
         resetting = false;

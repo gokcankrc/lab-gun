@@ -13,6 +13,10 @@ PrefabInstance:
       value: Containment Wall
       objectReference: {fileID: 0}
     - target: {fileID: 4221340635821187858, guid: 4f48c670be2122f4ca312cedfa13cc03, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221340635821187858, guid: 4f48c670be2122f4ca312cedfa13cc03, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -51,6 +55,14 @@ PrefabInstance:
     - target: {fileID: 4221340635821187858, guid: 4f48c670be2122f4ca312cedfa13cc03, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075835344116690688, guid: 4f48c670be2122f4ca312cedfa13cc03, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6220806
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075835344116690688, guid: 4f48c670be2122f4ca312cedfa13cc03, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.05281818
       objectReference: {fileID: 0}
     - target: {fileID: 7075835344116690688, guid: 4f48c670be2122f4ca312cedfa13cc03, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
