@@ -60,7 +60,7 @@ MonoBehaviour:
     fadeTime: 1
   - leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
-    background: {fileID: 0}
+    background: {fileID: 21300000, guid: 7f6eede4d18232944804556d684f9a0f, type: 3}
     leftHighlighted: 0
     rightHighlighted: 0
     backgroundFadeIn: 1
