@@ -1,5 +1,5 @@
 // #define HUNT_ADDRESSABLES
-
+/*
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,6 +25,7 @@ namespace DependenciesHunter
     /// <summary>
     /// Lists all unreferenced assets in a project.
     /// </summary>
+	
     public class AllProjectAssetsReferencesWindow : EditorWindow
     {
         private class Result
@@ -111,7 +112,7 @@ namespace DependenciesHunter
         private Vector2 _assetsScroll = Vector2.zero;
         private bool _analysisSettingsFoldout;
 
-        [MenuItem("Tools/Dependencies Hunter")]
+        //[MenuItem("Tools/Dependencies Hunter")]
         public static void LaunchUnreferencedAssetsWindow()
         {
             GetWindow<AllProjectAssetsReferencesWindow>();
@@ -785,7 +786,7 @@ namespace DependenciesHunter
         private Vector2[] _foldoutsScrolls;
 
         // Added DH to avoid clash with Unity's built in menu item
-        [MenuItem("Assets/DH - Find References In Project", false, 20)]
+        //[MenuItem("Assets/DH - Find References In Project", false, 20)]
         public static void FindReferences()
         {
             var window = GetWindow<SelectedAssetsReferencesWindow>();
@@ -1181,3 +1182,4 @@ namespace DependenciesHunter
     }
 }
 
+*/
