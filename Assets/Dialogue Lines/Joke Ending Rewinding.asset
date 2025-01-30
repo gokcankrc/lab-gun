@@ -62,4 +62,4 @@ MonoBehaviour:
   choiceText2: 
   "cho\xECice1ID": 0
   choice2ID: 0
-  isEnding: 0
+  isEnding: 1
