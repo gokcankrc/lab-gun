@@ -7,6 +7,7 @@ public class TaggedProjectile : MonoBehaviour,TaggedObject,SpecialCollisionForTa
     public List<PlayerTag> tagList = new List<PlayerTag>(); 
     Rigidbody2D rb;
     [SerializeField]float minSpeed;
+    [SerializeField]bool removesTagsOnCollision;
     bool destroyOnEverything = false, destroyOnCollisions = false, passTrait = false;
     void Update()
     {
@@ -43,7 +44,7 @@ public class TaggedProjectile : MonoBehaviour,TaggedObject,SpecialCollisionForTa
     }
     public bool IgnoreForCollision()
     {
-        return true;
+        return !removesTagsOnCollision;
     }
     private void OnCollisionEnter2D(Collision2D other)
     {

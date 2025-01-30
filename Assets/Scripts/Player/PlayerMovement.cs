@@ -11,11 +11,11 @@ public class PlayerMovement : MonoBehaviour
     bool movingWithMouse;
     bool ballMode;
     public static bool resetting;
+    static int timesReset;
     bool canInterruptReset = true;
     float resetTimeRemaining;
     AnimatedCharacter animationController;
     Animation.Direction currentDir = Animation.Direction.down;
-
     public float Speed => body.velocity.magnitude;
     public float GetSpeed()
     {
@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GeneralVfxSpawner.canSpawnVFX = true;
         animationController = gameObject.GetComponent<AnimatedCharacter>();
         if (animationController == null)
         {
@@ -123,9 +124,18 @@ public class PlayerMovement : MonoBehaviour
     public static void ResetStage ()
     {
         //print ("reset");
-        MusicManager.I.Resetting();
-        SceneManager.LoadScene("Main Scene");
-        resetting = false;
+        timesReset ++;
+        if (timesReset>= 5)
+        {
+            DialogueManager.StartDialogueScene(6);
+        }
+        else {
+            GeneralVfxSpawner.canSpawnVFX = false;
+            MusicManager.I.Resetting();
+            SceneManager.LoadScene("Main Scene");
+            resetting = false;
+        }
+        
     }
     void MoveThroughKeyboard(){
         if (resetting)
@@ -193,7 +203,7 @@ public class PlayerMovement : MonoBehaviour
 		Move(moveVector);
     }
     void Move(Vector2 vector){
-        
+        timesReset = 0; //resets the counter for the joke ending
         Vector2 moveVector = vector.normalized;
         if (movingWithMouse)
         {

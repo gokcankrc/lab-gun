@@ -29,6 +29,7 @@ public class BasicProjectile : MonoBehaviour
             if (lifetime < 0)
             {
                 flying = false;
+                Destroy(gameObject);
             }
         }
     }

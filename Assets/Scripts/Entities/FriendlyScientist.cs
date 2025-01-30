@@ -8,7 +8,7 @@ public class FriendlyScientist : MonoBehaviour
     [SerializeField] float minSpeed;
     [SerializeField]GameObject body;
     [SerializeField]PlayerTag pTag;
-    bool alive;
+    bool alive = true;
     void Start()
     {
         animationController = gameObject.GetComponent<AnimatedCharacter>();
@@ -20,6 +20,7 @@ public class FriendlyScientist : MonoBehaviour
             return;
         }
         var player = other.transform.GetComponent<PlayerMovement>();
+        print (player.Speed);
         if (player != null && player.Speed >minSpeed)
         {
             Die();

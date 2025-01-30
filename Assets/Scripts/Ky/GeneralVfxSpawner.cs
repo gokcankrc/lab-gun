@@ -17,6 +17,7 @@ public class GeneralVfxSpawner : MonoBehaviour
     [ShowIf("spawnOverTime")] public float interval;
     public Vector3 globalOffset;
     public bool spawnLocally;
+	public static bool canSpawnVFX;
     public float destroyAfter = 10f;
 
     private float timer;
@@ -38,8 +39,13 @@ public class GeneralVfxSpawner : MonoBehaviour
 
     private void OnDestroy()
     {
-        // temporary potential error fix
-        GeneralVfxParent.I.GetComponent<GeneralVfxParent>()?.StartCoroutine(SpawnOneFrameDelay(spawnOnDestroy));
+        // temporary potential error fix -> not really, if anything the spawning stopped working - Leo
+        //GeneralVfxParent.I.GetComponent<GeneralVfxParent>()?.StartCoroutine(SpawnOneFrameDelay(spawnOnDestroy));
+		if (canSpawnVFX) // canSpawnVFX is being handeled by playermovement, which knows when the game is about to be reset
+		{
+			Spawn(spawnOnDestroy);
+		}
+		
     }
 
     private void Update()

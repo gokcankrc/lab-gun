@@ -14,16 +14,19 @@ public class BasicScientist : Enemy, ILevelObject
     bool alive = true;
     AnimatedCharacter animationController;
     [SerializeField]int hp = 5;
+    [SerializeField]bool canMove, canAttack;
     [SerializeField]GameObject body;
     Rigidbody2D rb;
+    [SerializeField]EnemyState initialState = EnemyState.Idle;
     [ShowInInspector] private EnemyState State => fsm?.State ?? EnemyState.Idle;
     [ShowInInspector, ReadOnly] public int LevelIndex { get; set; }
+    [SerializeField]PlayerTag pTag;
 
     private void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         fsm = new StateMachine<EnemyState>(this);
-        fsm.ChangeState(EnemyState.Idle);
+        fsm.ChangeState(initialState);
         animationController = gameObject.GetComponent<AnimatedCharacter>();
         if (animationController == null){
             print (name+" has no Animator");
@@ -49,6 +52,10 @@ public class BasicScientist : Enemy, ILevelObject
 
     private bool CanAttack()
     {
+        if (!canAttack)
+        {
+            return false;
+        }
         if (canAttackTester)
         {
             canAttackTester = false;
@@ -80,17 +87,22 @@ public class BasicScientist : Enemy, ILevelObject
         var player = other.transform.GetComponent<PlayerMovement>();
         if (player != null)
         {
-            TakeDamage(player.GetSpeed());
+            if (TakeDamage(player.GetSpeed()))
+            {
+                PlayerTag.AddToList(other.transform.GetComponent<Player>().GetTagList(),pTag);
+            }
         }
     }
-    void TakeDamage (float impactSpeed)
+    bool TakeDamage (float impactSpeed)
     {
 
         hp -= (int)impactSpeed*2;
         if (hp <= 0)
         {
             Die();
+            return true;
         }
+        return false;
     }
     void Die ()
     {
@@ -122,8 +134,10 @@ public class BasicScientist : Enemy, ILevelObject
         engagedTimer -= Time.deltaTime;
         if (engagedTimer > 0)
         {
-            transform.position = Vector3.MoveTowards(transform.position, Player.I.transform.position, moveSpeed * Time.deltaTime);
-            animationController.StartAnimation(Animation.AnimationId.walk,Animation.Direction.none, false);
+            if (canMove){
+                transform.position = Vector3.MoveTowards(transform.position, Player.I.transform.position, moveSpeed * Time.deltaTime);
+                animationController.StartAnimation(Animation.AnimationId.walk,Animation.Direction.none, false);
+            }
         }
 
         if (CanAttack())

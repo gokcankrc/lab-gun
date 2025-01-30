@@ -140,7 +140,17 @@ MonoBehaviour:
   attackDistance: 5
   moveSpeed: 5
   hp: 25
+  canMove: 1
+  canAttack: 1
   body: {fileID: 2745824607117813734, guid: d8de92a70c00ffc41830a2a8da186a1f, type: 3}
+  initialState: 0
+  pTag:
+    tagName: 
+    value: 0
+    resetCondition:
+      value: 0
+      condition: 0
+    exactValueForCondition: 0
 --- !u!50 &204396884062697930
 Rigidbody2D:
   serializedVersion: 4
@@ -167,7 +177,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!114 &3093467024594457921
 MonoBehaviour:
   m_ObjectHideFlags: 0
