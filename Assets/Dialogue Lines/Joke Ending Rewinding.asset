@@ -21,8 +21,8 @@ MonoBehaviour:
     backgroundFadeIn: 1
     backgroundFadeOut: 1
     textShowing: 1
-    title: 3
-    text: hello I am 3
+    title: did you just
+    text: reset 5 times?
     fadeTime: 1
   - leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
@@ -62,3 +62,4 @@ MonoBehaviour:
   choiceText2: 
   "cho\xECice1ID": 0
   choice2ID: 0
+  isEnding: 0
