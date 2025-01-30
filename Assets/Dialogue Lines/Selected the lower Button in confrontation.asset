@@ -13,53 +13,75 @@ MonoBehaviour:
   m_Name: Selected the lower Button in confrontation
   m_EditorClassIdentifier: 
   lines:
+  - leftCharacter: {fileID: 21300000, guid: 991a739653ec9c7439c75e908a33267f, type: 3}
+    rightCharacter: {fileID: 0}
+    background: {fileID: 21300000, guid: 0757a8724944edc4ea3f11c4ba8405fd, type: 3}
+    leftHighlighted: 1
+    rightHighlighted: 0
+    backgroundFadeIn: 1
+    backgroundFadeOut: 0
+    textShowing: 1
+    title: T7
+    text: "You\u2019re not my creator. You\u2019re my captor."
+    fadeTime: 1
+  - leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    background: {fileID: 21300000, guid: a48bfd91413757a44946bef9f58f6d86, type: 3}
+    leftHighlighted: 0
+    rightHighlighted: 0
+    backgroundFadeIn: 1
+    backgroundFadeOut: 0
+    textShowing: 0
+    title: 
+    text: 
+    fadeTime: 1
+  - leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    background: {fileID: 21300000, guid: 9db5605ebe0713043b6b94357738cf64, type: 3}
+    leftHighlighted: 0
+    rightHighlighted: 0
+    backgroundFadeIn: 1
+    backgroundFadeOut: 0
+    textShowing: 0
+    title: 
+    text: 
+    fadeTime: 1
+  - leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    background: {fileID: 21300000, guid: ce62b6da415272849b19188261ecbab1, type: 3}
+    leftHighlighted: 0
+    rightHighlighted: 0
+    backgroundFadeIn: 1
+    backgroundFadeOut: 0
+    textShowing: 0
+    title: 
+    text: 
+    fadeTime: 1
+  - leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    background: {fileID: 21300000, guid: 7672ff101f8612a4fbd80fb41f535a87, type: 3}
+    leftHighlighted: 0
+    rightHighlighted: 0
+    backgroundFadeIn: 1
+    backgroundFadeOut: 0
+    textShowing: 0
+    title: 
+    text: 
+    fadeTime: 1
   - leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     background: {fileID: 0}
     leftHighlighted: 0
     rightHighlighted: 0
     backgroundFadeIn: 1
-    backgroundFadeOut: 1
-    textShowing: 1
-    title: 3-2
-    text: hello I am 3
-    fadeTime: 1
-  - leftCharacter: {fileID: 0}
-    rightCharacter: {fileID: 0}
-    background: {fileID: 0}
-    leftHighlighted: 0
-    rightHighlighted: 0
-    backgroundFadeIn: 0
     backgroundFadeOut: 0
     textShowing: 1
-    title: 3
-    text: 1
-    fadeTime: 1
-  - leftCharacter: {fileID: 0}
-    rightCharacter: {fileID: 0}
-    background: {fileID: 0}
-    leftHighlighted: 0
-    rightHighlighted: 0
-    backgroundFadeIn: 1
-    backgroundFadeOut: 0
-    textShowing: 1
-    title: 3
-    text: 2
-    fadeTime: 1
-  - leftCharacter: {fileID: 0}
-    rightCharacter: {fileID: 0}
-    background: {fileID: 0}
-    leftHighlighted: 0
-    rightHighlighted: 0
-    backgroundFadeIn: 0
-    backgroundFadeOut: 1
-    textShowing: 1
-    title: 3
-    text: I can count
+    title: 
+    text: "Congratulations, you\u2019ve reached the ending \"The world is my oyster\""
     fadeTime: 1
   showChoicesAtEnd: 0
   choiceText1: 
   choiceText2: 
   "cho\xECice1ID": 0
   choice2ID: 0
-  isEnding: 0
+  isEnding: 1

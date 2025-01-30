@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Lead Scientist Killed
   m_EditorClassIdentifier: 
   lines:
-  - leftCharacter: {fileID: 0}
+  - leftCharacter: {fileID: 21300000, guid: 991a739653ec9c7439c75e908a33267f, type: 3}
     rightCharacter: {fileID: 0}
     background: {fileID: 0}
-    leftHighlighted: 0
+    leftHighlighted: 1
     rightHighlighted: 0
     backgroundFadeIn: 1
-    backgroundFadeOut: 1
+    backgroundFadeOut: 0
     textShowing: 1
-    title: 3
-    text: hello I am 3
+    title: T7
+    text: No more experiments. No more orders. Just silence.
     fadeTime: 1
   - leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
@@ -32,33 +32,12 @@ MonoBehaviour:
     backgroundFadeIn: 0
     backgroundFadeOut: 0
     textShowing: 1
-    title: 3
-    text: 1
-    fadeTime: 1
-  - leftCharacter: {fileID: 0}
-    rightCharacter: {fileID: 0}
-    background: {fileID: 0}
-    leftHighlighted: 0
-    rightHighlighted: 0
-    backgroundFadeIn: 1
-    backgroundFadeOut: 0
-    textShowing: 1
-    title: 3
-    text: 2
-    fadeTime: 1
-  - leftCharacter: {fileID: 0}
-    rightCharacter: {fileID: 0}
-    background: {fileID: 0}
-    leftHighlighted: 0
-    rightHighlighted: 0
-    backgroundFadeIn: 0
-    backgroundFadeOut: 1
-    textShowing: 1
-    title: 3
-    text: I can count
+    title: 
+    text: "Congratulations, you\u2019ve reached the ending \"Caught off guard!\""
     fadeTime: 1
   showChoicesAtEnd: 0
   choiceText1: 
   choiceText2: 
   "cho\xECice1ID": 0
   choice2ID: 0
+  isEnding: 1

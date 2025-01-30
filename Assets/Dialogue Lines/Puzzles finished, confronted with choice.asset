@@ -13,52 +13,54 @@ MonoBehaviour:
   m_Name: Puzzles finished, confronted with choice
   m_EditorClassIdentifier: 
   lines:
-  - leftCharacter: {fileID: 0}
+  - leftCharacter: {fileID: 21300000, guid: 328600eb441e0c1418e30880a69737a0, type: 3}
     rightCharacter: {fileID: 0}
-    background: {fileID: 0}
-    leftHighlighted: 0
-    rightHighlighted: 0
-    backgroundFadeIn: 1
-    backgroundFadeOut: 1
-    textShowing: 1
-    title: hello
-    text: you are currently in conversation 2, gj
-    fadeTime: 1
-  - leftCharacter: {fileID: 0}
-    rightCharacter: {fileID: 0}
-    background: {fileID: 0}
-    leftHighlighted: 0
-    rightHighlighted: 0
-    backgroundFadeIn: 0
-    backgroundFadeOut: 0
-    textShowing: 1
-    title: 2
-    text: 2
-    fadeTime: 1
-  - leftCharacter: {fileID: 0}
-    rightCharacter: {fileID: 0}
-    background: {fileID: 0}
-    leftHighlighted: 0
+    background: {fileID: 21300000, guid: 0757a8724944edc4ea3f11c4ba8405fd, type: 3}
+    leftHighlighted: 1
     rightHighlighted: 0
     backgroundFadeIn: 1
     backgroundFadeOut: 0
     textShowing: 1
-    title: 2
-    text: 22
+    title: Lead scientist
+    text: "I created you. I gave you life! You can\u2019t just walk away from that!"
+    fadeTime: 1
+  - leftCharacter: {fileID: 21300000, guid: 328600eb441e0c1418e30880a69737a0, type: 3}
+    rightCharacter: {fileID: 0}
+    background: {fileID: 21300000, guid: 0757a8724944edc4ea3f11c4ba8405fd, type: 3}
+    leftHighlighted: 1
+    rightHighlighted: 0
+    backgroundFadeIn: 1
+    backgroundFadeOut: 0
+    textShowing: 1
+    title: Lead scientist
+    text: "Look at yourself. Do you really think you can survive out there? The world
+      will fear you. Hunt you. But here\u2026 I can protect you."
+    fadeTime: 1
+  - leftCharacter: {fileID: 21300000, guid: 991a739653ec9c7439c75e908a33267f, type: 3}
+    rightCharacter: {fileID: 0}
+    background: {fileID: 21300000, guid: 0757a8724944edc4ea3f11c4ba8405fd, type: 3}
+    leftHighlighted: 1
+    rightHighlighted: 0
+    backgroundFadeIn: 1
+    backgroundFadeOut: 0
+    textShowing: 1
+    title: T7
+    text: ... ... .... ....
     fadeTime: 1
   - leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
-    background: {fileID: 0}
-    leftHighlighted: 0
+    background: {fileID: 21300000, guid: 0757a8724944edc4ea3f11c4ba8405fd, type: 3}
+    leftHighlighted: 1
     rightHighlighted: 0
-    backgroundFadeIn: 0
-    backgroundFadeOut: 1
+    backgroundFadeIn: 1
+    backgroundFadeOut: 0
     textShowing: 1
-    title: 2
-    text: test
+    title: 
+    text: What will you decide?
     fadeTime: 1
-  showChoicesAtEnd: 0
-  choiceText1: 
-  choiceText2: 
+  showChoicesAtEnd: 1
+  choiceText1: Embrace the life in the laboratory.
+  choiceText2: Leave your maker and face the world
   "cho\xECice1ID": 0
   choice2ID: 0
+  isEnding: 0

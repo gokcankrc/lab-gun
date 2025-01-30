@@ -15,25 +15,48 @@ MonoBehaviour:
   lines:
   - leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
-    background: {fileID: 0}
+    background: {fileID: 21300000, guid: 751984be79880d741a0269bfbf09e1cb, type: 3}
     leftHighlighted: 0
     rightHighlighted: 0
     backgroundFadeIn: 1
-    backgroundFadeOut: 1
-    textShowing: 1
+    backgroundFadeOut: 0
+    textShowing: 0
     title: 3
     text: hello I am 3
     fadeTime: 1
   - leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
-    background: {fileID: 0}
+    background: {fileID: 21300000, guid: 8d99e829a617b98498d847d607d7fce4, type: 3}
     leftHighlighted: 0
     rightHighlighted: 0
-    backgroundFadeIn: 0
+    backgroundFadeIn: 1
     backgroundFadeOut: 0
-    textShowing: 1
-    title: 3
-    text: 1
+    textShowing: 0
+    title: 
+    text: 
+    fadeTime: 1
+  - leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    background: {fileID: 21300000, guid: ebf334ae70181cf40b1656923a4a33b0, type: 3}
+    leftHighlighted: 0
+    rightHighlighted: 0
+    backgroundFadeIn: 1
+    backgroundFadeOut: 0
+    textShowing: 0
+    title: 
+    text: 
+    fadeTime: 1
+  - leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    background: {fileID: 21300000, guid: 90210a807a59c164db38de12008e6f78, type: 3}
+    leftHighlighted: 0
+    rightHighlighted: 0
+    backgroundFadeIn: 1
+    backgroundFadeOut: 0
+    textShowing: 0
+    title: T7
+    text: You step into the unknown, leaving behind the horrors of the lab. But what
+      awaits outside?
     fadeTime: 1
   - leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
@@ -42,23 +65,13 @@ MonoBehaviour:
     rightHighlighted: 0
     backgroundFadeIn: 1
     backgroundFadeOut: 0
-    textShowing: 1
-    title: 3
-    text: 2
-    fadeTime: 1
-  - leftCharacter: {fileID: 0}
-    rightCharacter: {fileID: 0}
-    background: {fileID: 0}
-    leftHighlighted: 0
-    rightHighlighted: 0
-    backgroundFadeIn: 0
-    backgroundFadeOut: 1
-    textShowing: 1
-    title: 3
-    text: I can count
+    textShowing: 0
+    title: 
+    text: "Congratulations, you\u2019ve reached the ending \"Blood, Sweat, and Victory\""
     fadeTime: 1
   showChoicesAtEnd: 0
   choiceText1: 
   choiceText2: 
   "cho\xECice1ID": 0
   choice2ID: 0
+  isEnding: 1

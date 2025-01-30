@@ -13,26 +13,26 @@ MonoBehaviour:
   m_Name: Selected the upper Button in confrontation
   m_EditorClassIdentifier: 
   lines:
-  - leftCharacter: {fileID: 0}
+  - leftCharacter: {fileID: 21300000, guid: 991a739653ec9c7439c75e908a33267f, type: 3}
     rightCharacter: {fileID: 0}
-    background: {fileID: 0}
-    leftHighlighted: 0
+    background: {fileID: 21300000, guid: 0757a8724944edc4ea3f11c4ba8405fd, type: 3}
+    leftHighlighted: 1
     rightHighlighted: 0
     backgroundFadeIn: 1
-    backgroundFadeOut: 1
+    backgroundFadeOut: 0
     textShowing: 1
-    title: 3-1
-    text: hello I am 3
+    title: T7
+    text: "\u2026Maybe you\u2019re right. Maybe I don\u2019t belong out there."
     fadeTime: 1
   - leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
-    background: {fileID: 0}
+    background: {fileID: 21300000, guid: 83cfe6c68e878fd4f95fadf3c5dfcf68, type: 3}
     leftHighlighted: 0
     rightHighlighted: 0
-    backgroundFadeIn: 0
+    backgroundFadeIn: 1
     backgroundFadeOut: 0
-    textShowing: 1
-    title: 3
+    textShowing: 0
+    title: 
     text: 1
     fadeTime: 1
   - leftCharacter: {fileID: 0}
@@ -43,23 +43,12 @@ MonoBehaviour:
     backgroundFadeIn: 1
     backgroundFadeOut: 0
     textShowing: 1
-    title: 3
-    text: 2
-    fadeTime: 1
-  - leftCharacter: {fileID: 0}
-    rightCharacter: {fileID: 0}
-    background: {fileID: 0}
-    leftHighlighted: 0
-    rightHighlighted: 0
-    backgroundFadeIn: 0
-    backgroundFadeOut: 1
-    textShowing: 1
-    title: 3
-    text: I can count
+    title: 
+    text: "Congratulations, you\u2019ve reached the ending \"Home sweet home\""
     fadeTime: 1
   showChoicesAtEnd: 0
   choiceText1: 
   choiceText2: 
   "cho\xECice1ID": 0
   choice2ID: 0
-  isEnding: 0
+  isEnding: 1
