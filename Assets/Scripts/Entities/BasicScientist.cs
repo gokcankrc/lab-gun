@@ -150,7 +150,7 @@ public class BasicScientist : Enemy, ILevelObject
     {
         
         yield return new WaitForSeconds(2f);
-        animationController.StartAnimation(Animation.AnimationId.attack,Animation.Direction.none, true);
+        animationController.StartAnimation(Animation.AnimationId.attack,Animation.Direction.none, false);
         var projectile = Instantiate(basicProjectilePrefab, transform.position, Quaternion.identity, ProjectileParent.I);
         projectile.Init(Player.I.Pos - transform.position);
         projectile.transform.position += Vector3.back;

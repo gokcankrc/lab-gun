@@ -8,7 +8,7 @@ public class ConditionalBreakable : MonoBehaviour,SpecialCollisionForTag
     [SerializeField] private int health = 1;
     [SerializeField] private float hurtingSpeedThreshold, zOffsetForDecal;
     [SerializeField] private PlayerTag [] conditionList;
-    [SerializeField] private bool needsAllConditions;
+    [SerializeField] private bool needsAllConditions, closesOnAlarmSounded = false;
     [SerializeField] ConditionalBreakable [] linkedParts;
     [SerializeField]private bool ignoreCollisionForTagReset;
     private void OnCollisionEnter2D(Collision2D other)
@@ -86,6 +86,10 @@ public class ConditionalBreakable : MonoBehaviour,SpecialCollisionForTag
     }
     private void TakeDamage()
     {
+        if(closesOnAlarmSounded && GameManager.I.gameState != GameState.InPuzzle)
+        {
+            return;
+        }
         // TODO: Show cracks
         health -= 1;
         if (health <= 0)

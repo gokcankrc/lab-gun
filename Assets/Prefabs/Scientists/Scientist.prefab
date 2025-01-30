@@ -227,7 +227,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: ddb2f93e910ba7842a23ecfab2dd6a6c, type: 3}
     - {fileID: 21300000, guid: ec2a8463cdf324943a38d6514429decf, type: 3}
     - {fileID: 21300000, guid: 5575166f94fe2264ba28479052315d8b, type: 3}
-  - timePerFrame: 0
+  - timePerFrame: 0.2
     id: 1
     looped: 0
     spriteListDown:
