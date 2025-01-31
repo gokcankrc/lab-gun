@@ -23,6 +23,9 @@ public class BasicScientist : Enemy, ILevelObject
     [SerializeField] PlayerTag pTag;
     private Vector3 lastSeenPos;
     [SerializeField] private float losOffset = 1f;
+    [SerializeField] private bool shotgunProjectiles = false;
+    [SerializeField, ShowIf("shotgunProjectiles")] private float shotgunAngle;
+    [SerializeField, ShowIf("shotgunProjectiles")] private int shotgunProjectileCount = 1;
 
     private void Awake()
     {
@@ -162,12 +165,30 @@ public class BasicScientist : Enemy, ILevelObject
     {
         yield return new WaitForSeconds(2f);
         animationController.StartAnimation(Animation.AnimationId.attack, Animation.Direction.none, false);
-        var projectile = Instantiate(basicProjectilePrefab, transform.position, Quaternion.identity, ProjectileParent.I);
-        projectile.Init(Player.I.Pos - transform.position);
-        projectile.transform.position += Vector3.back;
+        var dir = Player.I.Pos - transform.position;
+        Shoot(dir);
+        if (shotgunProjectiles)
+        {
+            var originDir = dir;
+            for (int i = 0; i < shotgunProjectileCount; i++)
+            {
+                dir = Quaternion.Euler(0, 0, shotgunAngle * (i + 1)) * originDir;
+                Shoot(dir);
+                dir = Quaternion.Euler(0, 0, -shotgunAngle * (i + 1)) * originDir;
+                Shoot(dir);
+            }
+        }
+
         fsm.ChangeState(EnemyState.Following);
     }
     #endregion
+
+    private void Shoot(Vector3 dir)
+    {
+        var projectile = Instantiate(basicProjectilePrefab, transform.position, Quaternion.identity, ProjectileParent.I);
+        projectile.Init(dir);
+        projectile.transform.position += Vector3.back;
+    }
 
     void CheckRotation()
     {
