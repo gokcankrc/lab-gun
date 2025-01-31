@@ -4843,7 +4843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3826222949597392913, guid: 081b971f484db454a9dbf0a7865313b9, type: 3}
       propertyPath: initialState
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3826222949597392913, guid: 081b971f484db454a9dbf0a7865313b9, type: 3}
       propertyPath: pTag.tagName
@@ -6032,7 +6032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3826222949597392913, guid: 081b971f484db454a9dbf0a7865313b9, type: 3}
       propertyPath: initialState
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3826222949597392913, guid: 081b971f484db454a9dbf0a7865313b9, type: 3}
       propertyPath: pTag.tagName
@@ -8986,7 +8986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3826222949597392913, guid: 081b971f484db454a9dbf0a7865313b9, type: 3}
       propertyPath: initialState
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3826222949597392913, guid: 081b971f484db454a9dbf0a7865313b9, type: 3}
       propertyPath: pTag.tagName

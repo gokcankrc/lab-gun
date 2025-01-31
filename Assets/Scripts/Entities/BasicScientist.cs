@@ -167,7 +167,7 @@ public class BasicScientist : Enemy, ILevelObject
     private IEnumerator Attacking_Enter()
     {
         var dir = Player.I.Pos - transform.position;
-        // todo: 
+        // TODO: attack indicator
         yield return new WaitForSeconds(attackDelay);
         animationController.StartAnimation(Animation.AnimationId.attack, Animation.Direction.none, false);
         Shoot(dir);

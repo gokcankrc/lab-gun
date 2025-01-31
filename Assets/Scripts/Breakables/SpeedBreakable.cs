@@ -1,9 +1,10 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class SpeedBreakable : Breakable
 {
     [SerializeField] private float hurtingSpeedThreshold;
-    [SerializeField] private bool debugLog = false;
+    [ShowInInspector, HideReferenceObjectPicker] private static DebugSetting debugLog = new("debugLog");
 
     private void OnCollisionEnter2D(Collision2D other)
     {

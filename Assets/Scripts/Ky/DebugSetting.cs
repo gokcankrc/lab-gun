@@ -6,6 +6,8 @@ using UnityEngine;
 [Serializable]
 public class DebugSetting
 {
+//#if DEVELOPMENT_BUILD || UNITY_EDITOR
+// usage: [ShowInInspector, HideReferenceObjectPicker] private static DebugSetting debugLog = new("debugLog");
     [NonSerialized] public string keyRaw;
 
     [ShowInInspector, ToggleLeft]
@@ -42,4 +44,5 @@ public class DebugSetting
         Value = !Value;
     }
 }
+//#endif
 #endif
