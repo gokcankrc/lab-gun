@@ -2494,6 +2494,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 4926525684043758100}
     m_Modifications:
     - target: {fileID: 1154039754883940318, guid: e3a9954eef1c5604b96074183b504f77, type: 3}
+      propertyPath: ignoreCollisionForTagReset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1154039754883940318, guid: e3a9954eef1c5604b96074183b504f77, type: 3}
       propertyPath: conditionList.Array.data[0].tagName
       value: energized
       objectReference: {fileID: 0}
@@ -5259,6 +5263,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4926525684043758100}
     m_Modifications:
+    - target: {fileID: 373648161555605310, guid: 72f5d71881e1b1e4da51f93583dc462e, type: 3}
+      propertyPath: ignoreCollisionForTagReset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2768581917626923328, guid: 72f5d71881e1b1e4da51f93583dc462e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -2280,6 +2280,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
+    - target: {fileID: 1155472585627785672, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
+      propertyPath: ignoreCollisionForTagReset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176226288727363590, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
+      propertyPath: ignoreCollisionForTagReset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176226288727363590, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
+      propertyPath: conditionList.Array.data[0].tagName
+      value: energizedlvl2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515372638665353741, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
+      propertyPath: ignoreCollisionForTagReset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520042583500543585, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
+      propertyPath: ignoreCollisionForTagReset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595709810990512013, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
+      propertyPath: ignoreCollisionForTagReset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4926525684043758100, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2319,6 +2343,18 @@ PrefabInstance:
     - target: {fileID: 4926525684043758100, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423970899214612146, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
+      propertyPath: ignoreCollisionForTagReset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6848874067873571026, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
+      propertyPath: conditionList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258718313714905990, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
+      propertyPath: ignoreCollisionForTagReset
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
