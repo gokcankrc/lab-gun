@@ -532,7 +532,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64.9
+  m_fontSize: 72
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1633,7 +1633,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64.9
+  m_fontSize: 72
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1917,6 +1917,14 @@ PrefabInstance:
     - target: {fileID: 4290955084726462350, guid: d4c631007cd5b614a8ae903798db8747, type: 3}
       propertyPath: m_LocalPosition.y
       value: 84.981
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295099009239587908, guid: d4c631007cd5b614a8ae903798db8747, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 27.3872
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295099009239587908, guid: d4c631007cd5b614a8ae903798db8747, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 161.3064
       objectReference: {fileID: 0}
     - target: {fileID: 5562492589459871857, guid: d4c631007cd5b614a8ae903798db8747, type: 3}
       propertyPath: m_LocalScale.y
@@ -2269,7 +2277,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.85
+  m_fontSize: 56.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2446,6 +2454,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 886a07fd2051196458f49d66bc995792, type: 3}
+--- !u!1001 &3410894773401390831
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2457528142907890479, guid: 4ab4e9c1128aacb45a53648cedb45a55, type: 3}
+      propertyPath: m_Name
+      value: Areas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2457528142907890479, guid: 4ab4e9c1128aacb45a53648cedb45a55, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741197002055782317, guid: 4ab4e9c1128aacb45a53648cedb45a55, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741197002055782317, guid: 4ab4e9c1128aacb45a53648cedb45a55, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741197002055782317, guid: 4ab4e9c1128aacb45a53648cedb45a55, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741197002055782317, guid: 4ab4e9c1128aacb45a53648cedb45a55, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741197002055782317, guid: 4ab4e9c1128aacb45a53648cedb45a55, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741197002055782317, guid: 4ab4e9c1128aacb45a53648cedb45a55, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741197002055782317, guid: 4ab4e9c1128aacb45a53648cedb45a55, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741197002055782317, guid: 4ab4e9c1128aacb45a53648cedb45a55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741197002055782317, guid: 4ab4e9c1128aacb45a53648cedb45a55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741197002055782317, guid: 4ab4e9c1128aacb45a53648cedb45a55, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4ab4e9c1128aacb45a53648cedb45a55, type: 3}
 --- !u!1001 &9103565587815871365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2724,3 +2793,4 @@ SceneRoots:
   - {fileID: 935556950}
   - {fileID: 1758081720}
   - {fileID: 1020588205}
+  - {fileID: 3410894773401390831}
