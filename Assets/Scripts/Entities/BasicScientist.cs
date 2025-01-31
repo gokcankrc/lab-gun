@@ -26,6 +26,7 @@ public class BasicScientist : Enemy, ILevelObject
     [SerializeField] private bool shotgunProjectiles = false;
     [SerializeField, ShowIf("shotgunProjectiles")] private float shotgunAngle = 15;
     [SerializeField, ShowIf("shotgunProjectiles")] private int shotgunProjectileCount = 1;
+    [SerializeField] private float attackDelay = 1f;
 
     private void Awake()
     {
@@ -165,9 +166,10 @@ public class BasicScientist : Enemy, ILevelObject
 
     private IEnumerator Attacking_Enter()
     {
-        yield return new WaitForSeconds(2f);
-        animationController.StartAnimation(Animation.AnimationId.attack, Animation.Direction.none, false);
         var dir = Player.I.Pos - transform.position;
+        // todo: 
+        yield return new WaitForSeconds(attackDelay);
+        animationController.StartAnimation(Animation.AnimationId.attack, Animation.Direction.none, false);
         Shoot(dir);
         if (shotgunProjectiles)
         {
