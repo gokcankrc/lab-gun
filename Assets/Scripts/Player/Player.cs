@@ -34,6 +34,7 @@ public class Player : Singleton<Player>,TaggedObject
         {
             print ("Removed "+tagName);
             PlayerTag.ResetValue(tagList,tagName);
+            PlayerTagsChanged();
         }
         
     }
@@ -59,6 +60,7 @@ public class Player : Singleton<Player>,TaggedObject
         foreach (string tagName in removeList)
         {
             PlayerTag.ResetValue(tagList,tagName);
+            PlayerTagsChanged();
         }
     }
 
@@ -92,5 +94,9 @@ public class Player : Singleton<Player>,TaggedObject
     {
 
         return tagList;
+    }
+    public void PlayerTagsChanged()
+    {
+        Debug.Log($"Tags Changed!");
     }
 }

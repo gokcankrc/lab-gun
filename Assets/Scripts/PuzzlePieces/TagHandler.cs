@@ -18,6 +18,8 @@ public class TagHandler : MonoBehaviour, SpecialCollisionForTag
                 if (target != null)
                 {
                     ProcessAction(target.GetTagList());
+                    // I'm unsure if player actually changes but just in case
+                    Player.I.PlayerTagsChanged();
                 }
                 break;
             }
@@ -35,6 +37,8 @@ public class TagHandler : MonoBehaviour, SpecialCollisionForTag
                 if (target != null)
                 {
                     ProcessAction(target.GetTagList());
+                    // I'm unsure if player actually changes but just in case
+                    Player.I.PlayerTagsChanged();
                 }
                 break;
             }
@@ -67,7 +71,7 @@ public class TagHandler : MonoBehaviour, SpecialCollisionForTag
                 break;
             }
         }
-        
+        Player.I.PlayerTagsChanged();
     }
     public bool IgnoreForCollision()
     {

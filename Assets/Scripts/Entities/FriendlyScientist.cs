@@ -24,7 +24,10 @@ public class FriendlyScientist : MonoBehaviour
         if (player != null && player.Speed >minSpeed)
         {
             Die();
-            PlayerTag.AddToList(other.transform.GetComponent<Player>().GetTagList(),pTag);
+            
+            var pl = player.GetComponent<Player>();
+            PlayerTag.AddToList(pl.GetTagList(),pTag);
+            pl.PlayerTagsChanged();
             alive =false;
         }
     }
