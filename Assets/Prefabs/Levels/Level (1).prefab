@@ -50,7 +50,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 1964944531010536879, guid: 2a5a58bf1808a0a438df2fc80b46016b, type: 3}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 4736042287167425444}
 --- !u!1 &101283014454205760
 GameObject:
@@ -179,7 +179,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 0}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 3973029161617936916}
 --- !u!1 &715080443161227614
 GameObject:
@@ -365,7 +365,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 0}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 613414195243024890}
 --- !u!1 &843506153405290974
 GameObject:
@@ -1295,7 +1295,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 1964944531010536879, guid: 2a5a58bf1808a0a438df2fc80b46016b, type: 3}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 2876563351329139182}
 --- !u!1 &1521189636758259986
 GameObject:
@@ -1454,7 +1454,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 0}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 5428007304699323108}
 --- !u!1 &1837608984474152322
 GameObject:
@@ -1582,7 +1582,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 1964944531010536879, guid: 2a5a58bf1808a0a438df2fc80b46016b, type: 3}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 579748944494841244}
 --- !u!1 &2153257833861488057
 GameObject:
@@ -1891,7 +1891,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 0}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 6810391141811806805}
 --- !u!1 &2362884658883343817
 GameObject:
@@ -1943,7 +1943,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 1964944531010536879, guid: f0cf8b485eb1e54499e1f49e02aadb15, type: 3}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 5605505346902109914}
 --- !u!1 &2378572773674021627
 GameObject:
@@ -3032,7 +3032,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 0}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 9016606031853787858}
 --- !u!1 &3327408746286580756
 GameObject:
@@ -4063,7 +4063,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 0}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 7187201617683512598}
 --- !u!1 &4537770019028544032
 GameObject:
@@ -4481,7 +4481,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 0}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 2501515549414633537}
 --- !u!1 &4667559464767178938
 GameObject:
@@ -7334,7 +7334,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 0}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 4104137139518706551}
 --- !u!1 &7074904512827632558
 GameObject:
@@ -7657,7 +7657,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 0}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 7510156867029768435}
 --- !u!1 &7357637893775834789
 GameObject:
@@ -7785,7 +7785,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 0}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 6951159431105128064}
 --- !u!1 &7526205547742386226
 GameObject:
@@ -8299,7 +8299,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 0}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 2319385642658326221}
 --- !u!1 &8268589968596275417
 GameObject:
@@ -8654,7 +8654,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 0}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 4575084206428627671}
 --- !u!1 &8557545452624173933
 GameObject:
@@ -8706,7 +8706,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 0}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 6880168988595398588}
 --- !u!1 &8576625975102843153
 GameObject:
@@ -8758,7 +8758,7 @@ MonoBehaviour:
     duration: 20
   prefab: {fileID: 0}
   mode: 0
-  condition: 0
+  condition: 2
   debug: {fileID: 2041781783193841559}
 --- !u!1 &8798798500803999248
 GameObject:
