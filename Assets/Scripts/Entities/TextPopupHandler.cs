@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,8 +16,10 @@ public class TextPopupHandler : MonoBehaviour
     private int index;
     private TextSetting current => texts[index % texts.Count];
 
-    private void Start()
+    private IEnumerator Start()
     {
+        // build had some race condition/execution order issue
+        yield return null;
         switch (condition)
         {
             case TextCondition.BeforeContainment:
