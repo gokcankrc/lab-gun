@@ -2308,6 +2308,10 @@ PrefabInstance:
       propertyPath: tagModified.tagName
       value: energizedlvl2
       objectReference: {fileID: 0}
+    - target: {fileID: 4475264129163087944, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4926525684043758100, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2356,9 +2360,17 @@ PrefabInstance:
       propertyPath: conditionList.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6882499992099205120, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7258718313714905990, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
       propertyPath: ignoreCollisionForTagReset
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591860747994961335, guid: a77370fe743f9ce4e9af3efd3930917f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
