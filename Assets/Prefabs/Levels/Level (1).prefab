@@ -1939,7 +1939,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - text: ' Not all enemies are the same! Watch out and stay vigilant'
+  - text: The bright red door is for distraction. The other one required having the
+      red tag 3 times!
     duration: 20
   prefab: {fileID: 1964944531010536879, guid: f0cf8b485eb1e54499e1f49e02aadb15, type: 3}
   mode: 0
@@ -5823,7 +5824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - text: Some doors need multiples of the same tag to be unlocked!
+  - text: Not all enemies are the same! Watch out and stay vigilant
     duration: 20
   prefab: {fileID: 0}
   mode: 0
