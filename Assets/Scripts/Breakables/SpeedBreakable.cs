@@ -3,6 +3,7 @@ using UnityEngine;
 public class SpeedBreakable : Breakable
 {
     [SerializeField] private float hurtingSpeedThreshold;
+    [SerializeField] private bool debugLog = false;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -13,14 +14,19 @@ public class SpeedBreakable : Breakable
             var impactSpeed = Vector2.Dot(other.relativeVelocity, collisionNormal);
             if (impactSpeed > hurtingSpeedThreshold)
             {
-                Debug.Log($"<color=green>Passes, {impactSpeed}</color>");
-                // TODO: Sound
+                if (debugLog)
+                {
+                    Debug.Log($"<color=green>Passes, {impactSpeed}</color>");
+                }
+
                 TakeDamage();
             }
             else
             {
-                Debug.Log($"<color=red>Doesn't pass, {impactSpeed}</color>");
-                // TODO: Sound
+                if (debugLog)
+                {
+                    Debug.Log($"<color=red>Doesn't pass, {impactSpeed}</color>");
+                }
             }
         }
     }
