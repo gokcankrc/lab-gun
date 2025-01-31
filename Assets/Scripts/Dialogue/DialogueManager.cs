@@ -96,6 +96,7 @@ public class DialogueManager : MonoBehaviour
     }
     void AddLetter()
     {
+        Bleeper.I.PlayRandomBleep();
         currentLetters++;
         text.SetText(currentText.Remove(currentLetters,maxLetters-currentLetters));
     }
