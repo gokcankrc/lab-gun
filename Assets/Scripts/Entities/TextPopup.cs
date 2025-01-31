@@ -16,18 +16,20 @@ public class TextPopup : MonoBehaviour
         TextPopupManager.I.SetUp(this);
     }
 
-    [Button]
+    [Button, ShowIf("@debug == null")]
     private void ShowDebug()
     {
-        debug = Instantiate(prefab, transform.position + Vector3.back, Quaternion.identity, transform);
+        var prf = prefab == null ? TextPopupManager.I.prefab : prefab;
+        debug = Instantiate(prf, transform.position + Vector3.back, Quaternion.identity, transform);
         debug.gameObject.AddComponent<DestroyOnStart>();
     }
 
+    [Button, ShowIf("@debug != null")]
     private void HideDebug()
     {
         if (debug)
         {
-            Destroy(debug.gameObject);
+            DestroyImmediate(debug.gameObject);
         }
     }
 

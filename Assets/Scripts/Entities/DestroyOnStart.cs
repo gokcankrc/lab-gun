@@ -4,6 +4,6 @@ public class DestroyOnStart : MonoBehaviour
 {
     private void Start()
     {
-        Destroy(gameObject);
+        DestroyImmediate(gameObject);
     }
 }
