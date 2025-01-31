@@ -3836,9 +3836,11 @@ MonoBehaviour:
   mainContainer: {fileID: 1286516734}
   optionsContainer: {fileID: 859064124}
   fakeQuitContainer: {fileID: 287308010}
+  music: {fileID: 1028341457}
+  click: {fileID: 759369817}
+  hover: {fileID: 553319589}
   soundSlider: {fileID: 204179937}
   musicSlider: {fileID: 170831781}
-  menuMusic: {fileID: 1028341457}
 --- !u!4 &2114171693
 Transform:
   m_ObjectHideFlags: 0

@@ -7,22 +7,28 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField]GameObject mainContainer, optionsContainer, fakeQuitContainer;
+    [SerializeField]AudioSource music, click, hover;
     [SerializeField]Slider soundSlider, musicSlider;
     static bool firstSetupDone;
     bool startGame = false;
-    // Start is called before the first frame update
+    
     void Start()
     {
         if (!firstSetupDone)
         {
             MusicManager.musicVolume = 0.4f;
             MusicManager.soundsVolume = 0.4f;
+            SetMenuVolumes();
             firstSetupDone = true;
         }
         
     }
-
-    // Update is called once per frame
+    void SetMenuVolumes()
+    {
+        music.volume = MusicManager.musicVolume;
+        click.volume = MusicManager.soundsVolume;
+        hover.volume = MusicManager.soundsVolume;
+    }
     void Update()
     {
         if (startGame)
@@ -80,10 +86,12 @@ public class MainMenu : MonoBehaviour
     public void SetMusicVolume ()
     {
         MusicManager.musicVolume = musicSlider.value;
+        SetMenuVolumes();
     }
     public void SetSFXVolume ()
     {
         MusicManager.soundsVolume = soundSlider.value;
+        SetMenuVolumes();
     }
 }
 [Serializable]
