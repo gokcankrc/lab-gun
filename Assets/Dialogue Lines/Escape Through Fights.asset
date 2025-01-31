@@ -22,7 +22,7 @@ MonoBehaviour:
     backgroundFadeOut: 0
     textShowing: 0
     title: 3
-    text: hello I am 3
+    text: 
     fadeTime: 1
   - leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
