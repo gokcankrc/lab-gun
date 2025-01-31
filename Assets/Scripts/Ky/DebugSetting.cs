@@ -1,4 +1,4 @@
-#if DEBUG
+
 using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -45,4 +45,3 @@ public class DebugSetting
     }
 }
 //#endif
-#endif
