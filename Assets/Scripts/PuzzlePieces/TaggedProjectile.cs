@@ -57,6 +57,7 @@ public class TaggedProjectile : MonoBehaviour,TaggedObject,SpecialCollisionForTa
                     if (!PlayerTag.HasTagValue(tagObject.GetTagList(),pt))
                     {
                         PlayerTag.AddToList(tagObject.GetTagList(),pt);
+                        Player.I.PlayerTagsChanged();
                     }
                 }
             }
