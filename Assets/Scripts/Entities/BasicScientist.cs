@@ -24,7 +24,7 @@ public class BasicScientist : Enemy, ILevelObject
     private Vector3 lastSeenPos;
     [SerializeField] private float losOffset = 1f;
     [SerializeField] private bool shotgunProjectiles = false;
-    [SerializeField, ShowIf("shotgunProjectiles")] private float shotgunAngle;
+    [SerializeField, ShowIf("shotgunProjectiles")] private float shotgunAngle = 15;
     [SerializeField, ShowIf("shotgunProjectiles")] private int shotgunProjectileCount = 1;
 
     private void Awake()
