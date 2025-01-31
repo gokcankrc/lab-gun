@@ -9,6 +9,7 @@ public class Player : Singleton<Player>,TaggedObject
     public PlayerMovement movement;
     public List<PlayerTag> tagList = new List<PlayerTag>(); 
     public int health;
+    [SerializeField] private GeneralVfxSpawner bloodTrails;
     public Vector3 Pos => transform.position;
 
     void Update()
@@ -74,6 +75,8 @@ public class Player : Singleton<Player>,TaggedObject
     private void TakeDamage()
     {
         health -= 1;
+        bloodTrails.gameObject.SetActive(true);
+        bloodTrails.distanceInterval /= 2f;
         if (health <= 0)
         {
             Die();
