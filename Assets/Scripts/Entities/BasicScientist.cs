@@ -13,14 +13,16 @@ public class BasicScientist : Enemy, ILevelObject
     private float engagedTimer;
     bool alive = true;
     AnimatedCharacter animationController;
-    [SerializeField]int hp = 5;
-    [SerializeField]bool canMove, canAttack;
-    [SerializeField]GameObject body;
+    [SerializeField] int hp = 5;
+    [SerializeField] bool canMove, canAttack;
+    [SerializeField] GameObject body;
     Rigidbody2D rb;
-    [SerializeField]EnemyState initialState = EnemyState.Idle;
+    [SerializeField] EnemyState initialState = EnemyState.Idle;
     [ShowInInspector] private EnemyState State => fsm?.State ?? EnemyState.Idle;
     [ShowInInspector, ReadOnly] public int LevelIndex { get; set; }
-    [SerializeField]PlayerTag pTag;
+    [SerializeField] PlayerTag pTag;
+    private Vector3 lastSeenPos;
+    [SerializeField] private float losOffset = 1f;
 
     private void Awake()
     {
@@ -28,8 +30,9 @@ public class BasicScientist : Enemy, ILevelObject
         fsm = new StateMachine<EnemyState>(this);
         fsm.ChangeState(initialState);
         animationController = gameObject.GetComponent<AnimatedCharacter>();
-        if (animationController == null){
-            print (name+" has no Animator");
+        if (animationController == null)
+        {
+            print(name + " has no Animator");
         }
     }
 
@@ -39,9 +42,9 @@ public class BasicScientist : Enemy, ILevelObject
         {
             return;
         }
+
         CheckRotation();
         fsm.Driver.Update.Invoke();
-        
     }
 
     [Button]
@@ -56,6 +59,7 @@ public class BasicScientist : Enemy, ILevelObject
         {
             return false;
         }
+
         if (canAttackTester)
         {
             canAttackTester = false;
@@ -78,42 +82,46 @@ public class BasicScientist : Enemy, ILevelObject
 
         return hit.collider == null;
     }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (!alive)
         {
             return;
         }
+
         var player = other.transform.GetComponent<PlayerMovement>();
         if (player != null)
         {
             if (TakeDamage(player.GetSpeed()))
             {
-                PlayerTag.AddToList(other.transform.GetComponent<Player>().GetTagList(),pTag);
+                PlayerTag.AddToList(other.transform.GetComponent<Player>().GetTagList(), pTag);
             }
         }
     }
-    bool TakeDamage (float impactSpeed)
-    {
 
-        hp -= (int)impactSpeed*2;
+    bool TakeDamage(float impactSpeed)
+    {
+        hp -= (int)impactSpeed * 2;
         if (hp <= 0)
         {
             Die();
             return true;
         }
+
         return false;
     }
-    void Die ()
+
+    void Die()
     {
         alive = false;
-        
-        float timeToDie = animationController.StartAnimation(Animation.AnimationId.die,Animation.Direction.none, false);
+
+        float timeToDie = animationController.StartAnimation(Animation.AnimationId.die, Animation.Direction.none, false);
         Destroy(gameObject.GetComponent<Collider2D>());
         rb.velocity = Vector2.zero;
         if (body != null)
         {
-            FadeInItem corpse = Instantiate (body, transform.position+new Vector3(0,0,0.01f), Quaternion.identity).GetComponent<FadeInItem>();
+            FadeInItem corpse = Instantiate(body, transform.position + new Vector3(0, 0, 0.01f), Quaternion.identity).GetComponent<FadeInItem>();
             if (corpse != null)
             {
                 corpse.Setup(timeToDie);
@@ -121,22 +129,26 @@ public class BasicScientist : Enemy, ILevelObject
         }
 
         Destroy(gameObject, timeToDie);
-        
     }
+
     #region Finite State Machine
     private void Following_Update()
     {
         if (HasLineOfSight())
         {
             engagedTimer = 1f;
+            var dir = Player.I.transform.position - transform.position;
+            dir = dir.normalized;
+            lastSeenPos = Player.I.transform.position + dir * losOffset;
         }
 
         engagedTimer -= Time.deltaTime;
         if (engagedTimer > 0)
         {
-            if (canMove){
-                transform.position = Vector3.MoveTowards(transform.position, Player.I.transform.position, moveSpeed * Time.deltaTime);
-                animationController.StartAnimation(Animation.AnimationId.walk,Animation.Direction.none, false);
+            if (canMove)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, lastSeenPos, moveSpeed * Time.deltaTime);
+                animationController.StartAnimation(Animation.AnimationId.walk, Animation.Direction.none, false);
             }
         }
 
@@ -148,18 +160,17 @@ public class BasicScientist : Enemy, ILevelObject
 
     private IEnumerator Attacking_Enter()
     {
-        
         yield return new WaitForSeconds(2f);
-        animationController.StartAnimation(Animation.AnimationId.attack,Animation.Direction.none, false);
+        animationController.StartAnimation(Animation.AnimationId.attack, Animation.Direction.none, false);
         var projectile = Instantiate(basicProjectilePrefab, transform.position, Quaternion.identity, ProjectileParent.I);
         projectile.Init(Player.I.Pos - transform.position);
         projectile.transform.position += Vector3.back;
         fsm.ChangeState(EnemyState.Following);
     }
     #endregion
+
     void CheckRotation()
     {
-        
-        animationController.Turn(AnimatedCharacter.VectorToDirection((Vector2)Player.I.Pos-(Vector2)transform.position));
+        animationController.Turn(AnimatedCharacter.VectorToDirection((Vector2)Player.I.Pos - (Vector2)transform.position));
     }
 }

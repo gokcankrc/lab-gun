@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfxPrefab: {fileID: 5233729966270900857, guid: 70e30de94e6478741bdc8600134f90d9, type: 3}
+  vfxesRandomlySelectedFrom: []
   settings:
     rotation: 2
     direction: 1
@@ -159,7 +160,9 @@ MonoBehaviour:
   spawnOnDisable: 0
   spawnOnDestroy: 1
   spawnOverTime: 0
+  spawnOverDistance: 0
   interval: 0
+  distanceInterval: 0
   globalOffset: {x: 0, y: 0, z: -1}
   spawnLocally: 0
   destroyAfter: 10

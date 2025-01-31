@@ -53,7 +53,7 @@ MonoBehaviour:
     rightHighlighted: 0
     backgroundFadeIn: 1
     backgroundFadeOut: 0
-    textShowing: 0
+    textShowing: 1
     title: T7
     text: You step into the unknown, leaving behind the horrors of the lab. But what
       awaits outside?
@@ -65,7 +65,7 @@ MonoBehaviour:
     rightHighlighted: 0
     backgroundFadeIn: 1
     backgroundFadeOut: 0
-    textShowing: 0
+    textShowing: 1
     title: 
     text: "Congratulations, you\u2019ve reached the ending \"Blood, Sweat, and Victory\""
     fadeTime: 1

@@ -1,15 +1,18 @@
-using System;
-using System.Collections;
-
-using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class EndingZone : MonoBehaviour
 {
-	[SerializeField]int cutsceneTriggered;
-	private void OnTriggerEnter2D(Collider2D other)
+    [SerializeField] int cutsceneTriggered;
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-          DialogueManager.StartDialogueScene(cutsceneTriggered);
+        End();
     }
 
+    [Button]
+    private void End()
+    {
+        DialogueManager.StartDialogueScene(cutsceneTriggered);
+    }
 }

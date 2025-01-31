@@ -151,6 +151,7 @@ MonoBehaviour:
       value: 0
       condition: 0
     exactValueForCondition: 0
+  losOffset: 1
 --- !u!50 &8968822150589112502
 Rigidbody2D:
   serializedVersion: 4
@@ -177,7 +178,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!114 &8988554230822157569
 MonoBehaviour:
   m_ObjectHideFlags: 0

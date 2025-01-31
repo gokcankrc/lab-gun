@@ -9,9 +9,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5741745600328738006, guid: dbd0bc63d23fc2448acaf04d3f9cfad7, type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741745600328738006, guid: dbd0bc63d23fc2448acaf04d3f9cfad7, type: 3}
       propertyPath: initialState
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5741745600328738006, guid: dbd0bc63d23fc2448acaf04d3f9cfad7, type: 3}
+      propertyPath: attackDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741745600328738006, guid: dbd0bc63d23fc2448acaf04d3f9cfad7, type: 3}
+      propertyPath: basicProjectilePrefab
+      value: 
+      objectReference: {fileID: 2038716009013553871, guid: 9c1788d5b153b3842b73710b39888625, type: 3}
     - target: {fileID: 5892814091832886493, guid: dbd0bc63d23fc2448acaf04d3f9cfad7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8
