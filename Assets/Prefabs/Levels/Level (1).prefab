@@ -918,7 +918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - text: Pay attention to the colors of objects they might prove cruical for escaping
+  - text: Pay attention to the colors of objects they might prove crucial for escaping
     duration: 20
   - text: Watch out for the enemies, if they notice you they will try to capture
       you!
