@@ -16,7 +16,7 @@ public class TagHandlerExpanded : TagHandler
                 if (player != null)
                 {
                     ProcessAction(player.tagList);
-                    
+                    player.PlayerTagsChanged();
                 }
                 
                 break;
@@ -36,6 +36,7 @@ public class TagHandlerExpanded : TagHandler
                 if (player != null)
                 {
                     ProcessAction(player.tagList);
+                    player.PlayerTagsChanged();
                 }
                 break;
             }

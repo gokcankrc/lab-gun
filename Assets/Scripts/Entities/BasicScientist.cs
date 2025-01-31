@@ -98,7 +98,9 @@ public class BasicScientist : Enemy, ILevelObject
         {
             if (TakeDamage(player.GetSpeed()))
             {
-                PlayerTag.AddToList(other.transform.GetComponent<Player>().GetTagList(), pTag);
+                var pl = player.GetComponent<Player>();
+                PlayerTag.AddToList(pl.GetTagList(), pTag);
+                pl.PlayerTagsChanged();
             }
         }
     }
