@@ -112,11 +112,12 @@ public class Player : Singleton<Player>, TaggedObject
             c.a = 90 / 255f;
             main.startColor = c;
             var emis = partSys.emission;
-            emis.rateOverTimeMultiplier *= playerTag.value;
-            emis.rateOverDistanceMultiplier *= playerTag.value;
+            var val = Mathf.Max(playerTag.value, 1);
+            emis.rateOverTimeMultiplier *= val;
+            emis.rateOverDistanceMultiplier *= val;
         }
 
-        var log = $"Tags Changed! {tagList.Count}";
+        var log = $"Tags count:  {tagList.Count};";
         foreach (var playerTag in tagList)
         {
             log += $"{playerTag.tagName}, {playerTag.value}";
