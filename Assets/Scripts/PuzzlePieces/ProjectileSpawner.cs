@@ -47,7 +47,7 @@ public class ProjectileSpawner : MonoBehaviour
     }
     void SpawnProjectile()
     {
-        TaggedProjectile spawned = Instantiate(projectilePrefab,spawnPosition.transform.position,spawnPosition.transform.rotation).GetComponent<TaggedProjectile>();
+        TaggedProjectile spawned = Instantiate(projectilePrefab,spawnPosition.transform.position,spawnPosition.transform.rotation, ProjectileParent.I).GetComponent<TaggedProjectile>();
 
         Vector2 speed = (new Vector2 ((float)Math.Sin(projectileGradDirection*Math.PI/180),(float)Math.Cos(projectileGradDirection*Math.PI/180)))*initialSpeed;
 
