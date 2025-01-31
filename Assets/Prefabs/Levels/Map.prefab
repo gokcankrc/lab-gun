@@ -853,6 +853,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4926525684043758100}
     m_Modifications:
+    - target: {fileID: 796208750027933811, guid: f387c865a7d71cf4f93db923a6e8b10a, type: 3}
+      propertyPath: tagList.Array.data[1].resetCondition.value
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2807347294367864677, guid: f387c865a7d71cf4f93db923a6e8b10a, type: 3}
       propertyPath: m_Name
       value: Level (3)

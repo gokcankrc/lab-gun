@@ -28,9 +28,10 @@ public class PlayerTag
 		{
 			if (pt.tagName == toBeAdded.tagName)
 			{
+				//Debug.Log (pt.tagName+" is already there, adding values");
 				addAsNew = false;
 				pt.value += toBeAdded.value;
-				pt.resetCondition = toBeAdded.resetCondition;
+				pt.resetCondition.value = toBeAdded.resetCondition.value;
 			}
 		}
 		if (addAsNew)
