@@ -79,6 +79,7 @@ public class Player : Singleton<Player>,TaggedObject
         health -= 1;
         bloodTrails.gameObject.SetActive(true);
         bloodTrails.distanceInterval /= 2f;
+        bloodTrails.interval /= 2f;
         if (health <= 0)
         {
             Die();

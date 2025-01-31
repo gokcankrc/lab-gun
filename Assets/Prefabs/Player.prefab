@@ -5172,16 +5172,16 @@ MonoBehaviour:
   - {fileID: 860437041046054839, guid: 9cc8c8b0263ee4e4f8e3a2a1d5f1d469, type: 3}
   - {fileID: 7328697788287224591, guid: 64567011159875845a63407548f31b89, type: 3}
   settings:
-    rotation: 0
+    rotation: 3
     direction: 0
     directionVector: {x: 0, y: 0, z: 0}
   spawnOnStart: 0
   spawnOnEnable: 0
   spawnOnDisable: 0
   spawnOnDestroy: 0
-  spawnOverTime: 0
-  spawnOverDistance: 1
-  interval: 0
+  spawnOverTime: 1
+  spawnOverDistance: 0
+  interval: 1
   distanceInterval: 4
   globalOffset: {x: 0, y: 0, z: 0}
   spawnLocally: 0
