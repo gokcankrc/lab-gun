@@ -2505,6 +2505,10 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.9766278
       objectReference: {fileID: 0}
+    - target: {fileID: 1537782986290010063, guid: e3a9954eef1c5604b96074183b504f77, type: 3}
+      propertyPath: cutsceneTriggered
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1850030828603988154, guid: e3a9954eef1c5604b96074183b504f77, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
